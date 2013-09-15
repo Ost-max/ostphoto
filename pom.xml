@@ -139,6 +139,10 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+
+
+
 	
 		<!-- Test -->
 		<dependency>
@@ -148,8 +152,25 @@
 			<scope>test</scope>
 		</dependency>        
 	</dependencies>
+	
+	
     <build>
+    
         <plugins>
+	
+             <plugin>             
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <!-- Tomcat 7 has a different manager path - text - than other versions -->
+                    <url>http://localhost:8080/manager/text</url>
+                    <!-- Refer to the server settings in your ~/.m2/settings.xml -->
+                    <server>dev-tomcat</server>
+                    <update>true</update>
+                    <path>/OstPhoto-0.0.1</path>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>

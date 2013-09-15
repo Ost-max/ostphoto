@@ -6,9 +6,9 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello user!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<P>Site is under development now.</P>
 </body>
 </html>

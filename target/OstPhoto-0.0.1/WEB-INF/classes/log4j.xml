@@ -10,6 +10,16 @@
 		</layout>
 	</appender>
 	
+		    <appender name="debug" class="org.apache.log4j.RollingFileAppender">
+	<param name="File" value="rmDebug.log"/>
+	<param name="Append" value="true"/>
+	<param name="MaxFileSize" value="1500KB"/>
+	<param name="MaxBackupIndex" value="2"/>
+	<layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" value="**FOOBAR** %d{dd.MM.yyyy HH:mm:ss} %c  %m%n"/>
+	</layout>
+</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.ostphoto.app">
 		<level value="info" />
@@ -36,6 +46,9 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+
 	</root>
+	
+
 	
 </log4j:configuration>
