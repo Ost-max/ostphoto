@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 @Controller
+@RequestMapping(value = "/admin")
 public class BookingController {
 
 	// private static final Logger logger =
