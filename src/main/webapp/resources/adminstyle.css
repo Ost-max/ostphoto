@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+
+#cat  {
+	heigth: 100px;
+	width: 400px;
+	border: 1px solid grey;
+	padding: 5px;
+	margin: 10px;
+}
+
+#photoup  {
+	heigth: 100px;
+	width: 400px;
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid grey;
+	}

@@ -11,15 +11,21 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8">
 		<title>Administrator panel</title>
 		       <base href="${pageContext.request.contextPath}">
+		
 </head>
+       <link rel="stylesheet" href="/resources/adminstyle.css">
 <body>
-<h1>
+<a href="<c:url value="/admin"/>">Main</a>
+<a href="<c:url value="/admin/photo"/>">Photo</a>
+<a href="<c:url value="/admin/calendar"/>">Calendar</a>
+<a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
+<h2>
 	Welcome to administrator panel! 
-</h1>
+</h2>
 
 <%-- <spring:message code="label.remember" /> --%>
 
-<a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
+
 
 ${debugInfo}<br>
     <c:forEach items="${viewList}" var="viewName">
