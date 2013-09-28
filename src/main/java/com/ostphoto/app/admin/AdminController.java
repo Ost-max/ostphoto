@@ -33,6 +33,7 @@ public class AdminController {
         List<String> views = new ArrayList<String>();
         IModule photo = new PhotoModule();
         views.add(photo.getSmallViewName());
+//        model.addAttribute("debugInfo", System.getenv("VCAP_SERVICES"));
         model.addAttribute(IModule.VIEW_LIST, views);
         model.addAllAttributes(photo.getSmallAttributes());  
 		return "admin";

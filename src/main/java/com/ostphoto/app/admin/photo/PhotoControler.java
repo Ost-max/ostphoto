@@ -2,11 +2,13 @@ package com.ostphoto.app.admin.photo;
 
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ostphoto.app.admin.IModule;
+import com.ostphoto.app.admin.photo.domains.Category;
+import com.ostphoto.app.admin.photo.services.ICategoryService;
 
 
 
@@ -29,12 +33,28 @@ public class PhotoControler {
 	
 	@Autowired
 	private UploadPhotoFormValidator upfValidator;
+	
+	@Autowired
+	private ICategoryService categoryService;
 		
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String start(Locale locale, Model model) {
-        model.addAttribute(IModule.VIEW_LIST, PhotoModule.VIEW_NAME);
+        model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
         model.addAttribute(PhotoModule.VIEW_NAME + "UpForm", new UploadPhotoForm());
+        model.addAttribute("categoryEdit", new CategoryForm());
+        model.addAttribute("categoryEdit", new Category());
+        model.addAttribute("efitOk", "@@@");
+        model.addAttribute("categoryList", categoryService.getAllCathegories());
+//        + categoryService.getAllCathegories().size()
+        
+		return "admin";
+	}
+	
+	@RequestMapping(value="addcat", method = RequestMethod.POST)
+	public String addCategory(@ModelAttribute(value="photoUpForm") Category category, BindingResult result, Model model
+) {
+        categoryService.addCategory(category);
 		return "admin";
 	}
 	

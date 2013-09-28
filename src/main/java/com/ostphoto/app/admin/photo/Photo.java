@@ -6,12 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.ostphoto.app.admin.photo.domains.Category;
 
 
 
 
 
 @Entity
+@Table(name="Photo")
 public class Photo {
 
 	@Id
@@ -19,8 +23,8 @@ public class Photo {
     @GeneratedValue
 	private int id;
 	
-	@Column(name = "")
-	private List<Cathegory> cathegories;
+	@Column(name = "cathegories")
+	private List<Category> cathegories;
 	private String path;
 	private String comment;
 	

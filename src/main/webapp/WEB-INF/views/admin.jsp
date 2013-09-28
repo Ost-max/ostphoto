@@ -14,12 +14,16 @@
 <h1>
 	Welcome to administrator panel! 
 </h1>
+Map<String, String[]> parameters = request.getParameterMap();
+for(Entry<String, String[]> parameter : parameters.entrySet()) {
+     System.out.println(parameter.getKey() + " " + parameter.getValue());
+}
 
 <%-- <spring:message code="label.remember" /> --%>
 
 <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
 
-${viewList}<br>
+${debugInfo}<br>
     <c:forEach items="${viewList}" var="viewName">
                 <jsp:include page="${viewName}.jsp" />
       </c:forEach>
