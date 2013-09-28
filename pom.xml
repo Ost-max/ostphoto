@@ -6,7 +6,7 @@
 	<artifactId>OstPhoto</artifactId>
 	<name>OstPhoto</name>
 	<packaging>war</packaging>
-	<version>0.0.1</version>
+	<version>1.0.1</version>
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
@@ -162,7 +162,11 @@
             <artifactId>hibernate-commons-annotations</artifactId>
             <version>3.3.0.ga</version>
         </dependency>
-
+        <dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
 
 	
 		<!-- Test -->
@@ -176,22 +180,20 @@
 	
 	
     <build>
-    
         <plugins>
-	
-             <plugin>             
+             <!-- <plugin>             
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
-                    <!-- Tomcat 7 has a different manager path - text - than other versions -->
+                    Tomcat 7 has a different manager path - text - than other versions
                     <url>http://localhost:8080/manager/text</url>
-                    <!-- Refer to the server settings in your ~/.m2/settings.xml -->
+                    Refer to the server settings in your ~/.m2/settings.xml
                     <server>dev-tomcat</server>
                     <update>true</update>
                     <path>/OstPhoto-0.0.1</path>
                 </configuration>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>2.9</version>
