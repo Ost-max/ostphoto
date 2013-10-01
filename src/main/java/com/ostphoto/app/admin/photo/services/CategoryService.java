@@ -25,7 +25,7 @@ public class CategoryService implements ICategoryService {
 
 	@Override
     @Transactional
-	public List<Category> getAllCathegories() {
+	public List<Category> getAllCategories() {
 		// TODO Auto-generated method stub
 		return categoryDao.getAllCategories();
 	}

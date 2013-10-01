@@ -6,12 +6,14 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ostphoto.app.admin.photo.PhotoModule;
+import com.ostphoto.app.admin.photo.services.ICategoryService;
 
 
 
@@ -24,6 +26,9 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
+	@Autowired
+	private ICategoryService categoryService;
+	
 	/**
 	 * Simply selects the admin view to render by returning its name.
 	 */
@@ -31,7 +36,7 @@ public class AdminController {
 	public String start(Locale locale, Model model) {
 		logger.info("Admin panel is loaded", locale);
         List<String> views = new ArrayList<String>();
-        IModule photo = new PhotoModule();
+        IModule photo = new PhotoModule(categoryService);
         views.add(photo.getSmallViewName());
 //        model.addAttribute("debugInfo", System.getenv("VCAP_SERVICES"));
         model.addAttribute(IModule.VIEW_LIST, views);

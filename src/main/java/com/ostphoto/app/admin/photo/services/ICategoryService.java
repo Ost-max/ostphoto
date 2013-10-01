@@ -8,6 +8,6 @@ public interface ICategoryService {
 	
 	public void addCategory(Category cathegory);
 	
-	public List<Category> getAllCathegories();
+	public List<Category> getAllCategories();
 
 }

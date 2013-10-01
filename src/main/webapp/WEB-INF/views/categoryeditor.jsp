@@ -10,10 +10,10 @@
        <c:forEach items="${categoryList}" var="category">                   
                   <a href="cat/photo/${category.name}">${category.name}</a> &nbsp; 
                 </c:forEach>
-   
-        <form:form method="post" commandName="categoryEdit" action="${pageContext.request.contextPath}/photo/catedit" enctype="multipart/form-data">
+                <br>
+        <form:form method="post" commandName="categoryEdit" action="${pageContext.request.contextPath}/admin/photo/addcat" enctype="multipart/form-data">
             <form:errors path="*" cssClass="upfErr" /><br>
             <form:input path="name" type="text"/>  
-            <input type="button" value="add"/>
+            <input  type="submit" value="add"/>
    </form:form>
    </div>

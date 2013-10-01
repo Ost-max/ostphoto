@@ -42,18 +42,18 @@ public class PhotoControler {
 	@RequestMapping(method = RequestMethod.GET)
 	public String start(Locale locale, Model model) {
         model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-        model.addAttribute(PhotoModule.VIEW_NAME + "UpForm", new UploadPhotoForm());
+        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         model.addAttribute("categoryEdit", new Category());
-        model.addAttribute("categoryList", categoryService.getAllCathegories());
-//        + categoryService.getAllCathegories().size()
-        
-		return "admin";
+
+        return "admin";
 	}
 	
 	@RequestMapping(value="addcat", method = RequestMethod.POST)
-	public String addCategory(@ModelAttribute(value="photoUpForm") Category category, BindingResult result, Model model
-) {
+	public String addCategory(@ModelAttribute(value="categoryEdit") Category category, BindingResult result, Model model
+) {     model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
+        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         categoryService.addCategory(category);
+        model.addAttribute("editOk", "Category " + category.getName() + " has been added");
 		return "admin";
 	}
 	
