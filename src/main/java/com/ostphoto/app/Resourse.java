@@ -2,15 +2,16 @@ package com.ostphoto.app;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
+
 
 public class Resourse {
 	
 	public final static String ROOT_DIR = System.getProperty("user.dir");
 	public final static String PHOTO_DIR_NAME = "photo";
 	public final static String ORIGINAL_DIR_NAME = "original";
-	public final static String DATE_DIR =  new SimpleDateFormat("yyyy.MM.dd").format(new Date());
+	//TODO check when class init and how long does it exists 
+	public final static String DATE_DIR =  new Date(System.currentTimeMillis()).toString();
 	private static final String RESIZED = "resized";
 	
 
@@ -25,5 +26,6 @@ public class Resourse {
 		return Paths.get(ROOT_DIR, PHOTO_DIR_NAME, RESIZED, DATE_DIR);
 	}
 
+	
 
 }

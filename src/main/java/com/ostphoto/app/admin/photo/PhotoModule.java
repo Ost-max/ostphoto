@@ -1,8 +1,11 @@
 package com.ostphoto.app.admin.photo;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,10 +58,17 @@ public class PhotoModule implements IModule {
 		Path dir = Resourse.getOriginalPhotoDirPaths(); 		
 		if (!Files.isDirectory(dir)) {
 			Files.createDirectories(dir);
+		}	
+		int dotIndx = file.getOriginalFilename().lastIndexOf('.');
+		String fileType = null;
+		if (dotIndx > 0) {
+			fileType = file.getOriginalFilename().substring(dotIndx+1);
 		}
-		Path path = Files.createFile(dir.resolve(String.valueOf(file.getOriginalFilename())));
+		// TODO very expencive(memory leak) - should be refactore
+		String fileNameString = new BigInteger(100, new SecureRandom()).toString(15).substring(0, 8) + "." + fileType;
+		Path path = Files.createFile(dir.resolve(fileNameString));
 		Files.write(path, file.getBytes());
-		return path.toString();
+		return fileNameString;
 	}
 
 

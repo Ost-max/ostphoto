@@ -2,8 +2,10 @@ package com.ostphoto.app.admin.photo;
 
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Arrays;
 import java.util.Locale;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ostphoto.app.Resourse;
 import com.ostphoto.app.admin.IModule;
 import com.ostphoto.app.admin.photo.domains.Category;
+import com.ostphoto.app.admin.photo.domains.Photo;
 import com.ostphoto.app.admin.photo.services.ICategoryService;
+import com.ostphoto.app.admin.photo.services.IPhotoService;
 
 
 
@@ -33,10 +38,11 @@ public class PhotoControler {
 	private static final Logger logger = LoggerFactory.getLogger(PhotoModule.class);
 	
 	@Autowired
-	private UploadPhotoFormValidator upfValidator;
-	
+	private UploadPhotoFormValidator upfValidator;	
 	@Autowired
 	private ICategoryService categoryService;
+	@Autowired
+	private IPhotoService photoService;
 		
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -44,7 +50,7 @@ public class PhotoControler {
         model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
         model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         model.addAttribute("categoryEdit", new Category());
-
+//        model.addAttribute("editOk", Configuration);
         return "admin";
 	}
 	
@@ -60,19 +66,25 @@ public class PhotoControler {
 
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String uploadPhoto(@ModelAttribute(value="photoUpForm") UploadPhotoForm photo, BindingResult result, Model model
+	public String uploadPhoto(@ModelAttribute(value="photoUpForm") UploadPhotoForm photoForm, BindingResult result, Model model
 ) {
 		logger.info("uploadPhoto start");
-        model.addAttribute(IModule.VIEW_LIST, PhotoModule.VIEW_NAME);
-		upfValidator.validate(photo, result);
+		model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
+		model.addAttribute("categoryList", categoryService.getAllCategories());
+        model.addAttribute("categoryEdit", new Category());
+		upfValidator.validate(photoForm, result);
 		if (result.hasErrors()) {
 			logger.info("uploadPhoto haserr");
 			return "admin";
 		}
 		try {
-			String finalPath = PhotoModule.saveFile(photo);
-			PhotoModule.writeToDB(finalPath, photo);
-			model.addAttribute("uploadOk", "Photo " + photo.getFile().getOriginalFilename() + " successfully uploaded.");
+			String fileName = PhotoModule.saveFile(photoForm);
+			Photo photo = new Photo();
+			photo.setFileName(fileName);
+			photo.setUpdate(Date.valueOf(Resourse.DATE_DIR));
+			photoService.addPhoto(photo);
+			model.addAttribute("uploadOk", "Photo " + photoForm.getFile().getOriginalFilename() + " successfully uploaded.");
+			
 		} catch (IOException e) {
 			logger.error("Upload I/O error: ", e);
 			result.rejectValue("file", "err1", e.getClass().getName() + ": "

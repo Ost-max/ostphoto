@@ -10,7 +10,7 @@
 			  <form:option value="0" label="choise..." />
 			  <form:options items="${categoryList}" itemValue="id" itemLabel="name" />
 	    	</form:select>
-	    	<br>
+	    	<br><br>
 	    	<form:input path="file" type="file"/>  
             <input type="submit"/>
    </form:form>
