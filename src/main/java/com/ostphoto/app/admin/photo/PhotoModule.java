@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ostphoto.app.Resourse;
 import com.ostphoto.app.admin.IModule;
 import com.ostphoto.app.admin.photo.domains.Category;
+import com.ostphoto.app.admin.photo.domains.Photo;
 import com.ostphoto.app.admin.photo.services.ICategoryService;
 
 
@@ -70,6 +72,9 @@ public class PhotoModule implements IModule {
 		Files.write(path, file.getBytes());
 		return fileNameString;
 	}
+
+
+
 
 
 

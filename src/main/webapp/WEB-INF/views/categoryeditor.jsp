@@ -17,3 +17,11 @@
             <input  type="submit" value="add"/>
    </form:form>
    </div>
+   <br>
+   <div id="photolist" >
+          <c:forEach items="${photoList}" var="photo">       
+          
+                  <img src="${pageContext.request.contextPath}/admin/photo/original/${photo.update}/${photo.fileName}"  width="30%"
+                  height="30%"/>&nbsp; 
+                </c:forEach>
+   </div>

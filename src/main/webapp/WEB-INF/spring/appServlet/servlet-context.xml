@@ -58,13 +58,13 @@
 	
 		
 		    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-<!-- 		<property name="url" value="jdbc:mysql://127.0.0.1/stady" /> -->
-<!-- 		<property name="username" value="root" /> -->
-<!-- 		<property name="password" value="abc379" />  -->
+		<property name="url" value="jdbc:mysql://127.0.0.1/stady" />
+		<property name="username" value="root" />
+		<property name="password" value="abc379" /> 
 
-        <property name="url" value="jdbc:mysql://10.0.6.93/:3306" />
-		<property name="username" value="uQMnyGOrjmVmN" />
-		<property name="password" value="pANhfFOLBPI8N" />
+<!--         <property name="url" value="jdbc:mysql://10.0.6.93/:3306" /> -->
+<!-- 		<property name="username" value="uQMnyGOrjmVmN" /> -->
+<!-- 		<property name="password" value="pANhfFOLBPI8N" /> -->
 	</bean>
 
 
