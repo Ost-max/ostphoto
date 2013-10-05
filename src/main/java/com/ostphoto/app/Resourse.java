@@ -15,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.ostphoto.app.admin.photo.domains.Photo;
 
 
-public class Resourse extends WebMvcConfigurerAdapter{
+public class Resourse {
+//extends WebMvcConfigurerAdapter
 	
 	public final static String ROOT_DIR = System.getProperty("user.dir");
 	public final static String PHOTO_DIR_NAME = "photo";
@@ -35,10 +36,10 @@ public class Resourse extends WebMvcConfigurerAdapter{
 		return Paths.get(ROOT_DIR, PHOTO_DIR_NAME, RESIZED, DATE_DIR);
 	}
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    registry.addResourceHandler("/photo/**").addResourceLocations("file:" + Paths.get(ROOT_DIR, PHOTO_DIR_NAME).toString());
-	}
+//	@Override
+//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//	    registry.addResourceHandler("/photo/**").addResourceLocations("file:" + Paths.get(ROOT_DIR, PHOTO_DIR_NAME).toString());
+//	}
 
 	
 	

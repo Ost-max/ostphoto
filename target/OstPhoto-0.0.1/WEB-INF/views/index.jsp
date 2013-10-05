@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Home</title>
-    <link href="../../resources/sitestyle.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div id="header" >

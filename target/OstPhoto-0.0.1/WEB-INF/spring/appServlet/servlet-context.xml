@@ -38,10 +38,9 @@
 
 	<context:component-scan base-package="com.ostphoto.app" />
 	
-	
-		<!-- Определяем папки, в которых будем автоматически искать бины-компоненты (@Component, @Service)  -->
-	<context:component-scan base-package="com.ostphoto.app.admin.photo.dao" />
-	<context:component-scan base-package="com.ostphoto.app.admin.photo.service" />
+	 		<!-- Определяем папки, в которых будем автоматически искать бины-компоненты (@Component, @Service)  -->
+<!-- 	<context:component-scan base-package="com.ostphoto.app.admin.photo.dao" /> -->
+<!-- 	<context:component-scan base-package="com.ostphoto.app.admin.photo.service" /> -->
 	
 		<!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
