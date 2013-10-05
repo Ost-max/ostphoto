@@ -15,7 +15,7 @@
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
-			$.getJSON('http://localhost:8080/app/calendar/getApprovedDates', function (data) {
+			$.getJSON('http://localhost:8080/OstPhoto/admin/calendar/getApprovedDates', function (data) {
 	            var calendar = $('#calendar').fullCalendar({
 	                header: {
 	                    left: 'prev,next today',
@@ -38,11 +38,16 @@
 	                        );
 	                    }
 	                    
+	                    /* var a = [];
+	                    a[0] = title;
+	                    a[1] = start;
+	                    a[2] = end; */
+	                    
 	                    $.ajax({
 	                        type : "POST",
-	                        url : "http://localhost:8080/app/calendar/setNewDate",
-	                        dataType:'json',
-	                        data : title,
+	                        url : "http://localhost:8080/OstPhoto/admin/calendar/setNewDate",
+	                        /* dataType:'json', */
+	                        data : title + ";" + start + ";" + end,
 	                        success : function(response) {
 	                           alert('success'); 
 	                        },
@@ -76,7 +81,7 @@
 	</style>
 </head>
 <body>
-<h1>asd</h1>
+<h1>Booking calendar</h1>
 <div id='calendar'></div>
 
 </body>
