@@ -39,6 +39,7 @@ body {
 	width: 475px;
 	font-family: Arial;
 	height: 35px;
+	text-decoration: none;
 }
 
 .head_menu a {
@@ -60,14 +61,18 @@ body {
 .head_menu a:hover {
 	color: #F00;
     border-bottom: 1px solid #F00;
+	text-decoration: none;
 
 }
 #slider {
-	width: 600px;
+	width: 750px;
 	position: relative;
 	margin-left: 100px;
 	margin-top: 20px;
 	background-color: #FFF;
+	display: block;
+	height: 600px;
+	padding-top: 10px;
 }
 
 .slideshow {
