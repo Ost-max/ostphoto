@@ -9,7 +9,7 @@
   <body>
     <div id="header" >
       <div id="logo" > </div>
-      <div class="head_menu" > <a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="#">Calendar</a><a href="#">Contact us</a>    <!--Slider + news + calendar + last photo + foot-->  </div>
+      <div class="head_menu" > <a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="${pageContext.request.contextPath}/booking">Calendar</a><a href="#">Contact us</a>    <!--Slider + news + calendar + last photo + foot-->  </div>
     </div>
   </body>
 </html>
