@@ -9,15 +9,15 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.history.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.opacityrollover.js"></script>
     <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
-    <link href="/resources/sitestyle.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/resources/galleriffic/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="/resources/galleriffic/css/galleriffic-2.css" type="text/css" />
+    <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/galleriffic-2.css" type="text/css" />
     </style>
   </head>
   <body>
     <div id="header" >
       <div id="logo" > </div>
-      <div class="head_menu" > <a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a> <a href="${pageContext.request.contextPath}/booking">Calendar</a> <a href="#">Contact us</a> </div>
+      <div class="head_menu" ><a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="${pageContext.request.contextPath}/booking">Calendar</a><a href="#">Contact us</a></div>
     </div>
     <div id="slider" >
           <div id="gallery" class="content">
