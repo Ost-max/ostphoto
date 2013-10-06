@@ -47,7 +47,7 @@
 	                        type : "POST",
 	                        url : "http://localhost:8080/OstPhoto/admin/calendar/setNewDate",
 	                        /* dataType:'json', */
-	                        data : title + ";" + start + ";" + end,
+	                        data : title + ";" + $.fullCalendar.formatDate(start, 'u') + ";" + end,
 	                        success : function(response) {
 	                           alert('success'); 
 	                        },
@@ -58,7 +58,8 @@
 	                    calendar.fullCalendar('unselect');
 	                },
 	                editable: true,
-	                events:[data]
+	                eventColor: '#378006',
+	                events: data
 	            });
 	         });
 	        });
@@ -77,6 +78,7 @@
 			width: 900px;
 			margin: 0 auto;
 			}
+		.fc-event { height: 100px; }
 	
 	</style>
 </head>
