@@ -4,18 +4,23 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Booking meeting date</title>
-	<link rel='stylesheet' type='text/css' href='resources/js/fullcalendar.css' />
+	<link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/resources/js/fullcalendar.css' />
+	<link rel='stylesheet' type='text/css' href='${pageContext.request.contextPath}/resources/js/fullcalendar.print.css' media='print' />
+	<script type='text/javascript' src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	<script type='text/javascript' src="${pageContext.request.contextPath}/resources/js/jquery-ui.custom.min.js"></script>
+	<script type='text/javascript' src="${pageContext.request.contextPath}/resources/js/fullcalendar.min.js"></script>
+	<%-- <link rel='stylesheet' type='text/css' href='resources/js/fullcalendar.css' />
 	<link rel='stylesheet' type='text/css' href='resources/js/fullcalendar.print.css' media='print' />
 	<script type='text/javascript' src="<c:url value="resources/js/jquery.min.js" />"></script>
 	<script type='text/javascript' src="<c:url value="resources/js/jquery-ui.custom.min.js" />"></script>
-	<script type='text/javascript' src="<c:url value="resources/js/fullcalendar.min.js" />"></script>
+	<script type='text/javascript' src="<c:url value="resources/js/fullcalendar.min.js" />"></script> --%>
 	<script type='text/javascript'>
 		$(document).ready(function() {
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
-			$.getJSON('http://localhost:8080/OstPhoto/admin/calendar/getApprovedDates', function (data) {
+			$.getJSON('${pageContext.request.contextPath}/admin/calendar/getApprovedDates', function (data) {
 	            var calendar = $('#calendar').fullCalendar({
 	                header: {
 	                    left: 'prev,next today',
@@ -45,7 +50,7 @@
 	                    
 	                    $.ajax({
 	                        type : "POST",
-	                        url : "http://localhost:8080/OstPhoto/admin/calendar/setNewDate",
+	                        url : "${pageContext.request.contextPath}/admin/calendar/setNewDate",
 	                        /* dataType:'json', */
 	                        data : title + ";" + $.fullCalendar.formatDate(start, 'u') + ";" + end,
 	                        success : function(response) {
