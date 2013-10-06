@@ -39,6 +39,15 @@ public class SiteController {
 		return "index";
 	}
 	
+	
+	@RequestMapping(value = "/booking", method = RequestMethod.GET)
+	public String booking(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+
+		
+		return "booking";
+	}
 	// private static final Logger logger =
 	// LoggerFactory.getLogger(BookingController.class);
 

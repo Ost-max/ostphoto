@@ -2,15 +2,14 @@
 <%@ page session="false" %>
 <html>
   <head>
-    <title>Home</title>
+    <title>Ostrovsky photography</title>
     <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
+    </style>
   </head>
   <body>
     <div id="header" >
       <div id="logo" > </div>
-      <div id="head_menu" > Main News Portfolio Calendar Contact us </div>
+      <div class="head_menu" > <a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="#">Calendar</a><a href="#">Contact us</a>    <!--Slider + news + calendar + last photo + foot-->  </div>
     </div>
-    <!--Slider + news + calendar + last photo + foot-->
-    
   </body>
 </html>

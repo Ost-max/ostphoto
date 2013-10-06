@@ -3,7 +3,7 @@
 
 
 body {
-	background-color: #b0c4de;
+	background-color: #FFECDC;
 	margin: 0px;
 	padding: 0px;
 }
@@ -28,12 +28,37 @@ body {
 	height: 105px;
 	position: relative;
 }
-#head_menu {
+
+.head_menu {
 	color: #FFF;
-	float: none;
-	width: 300px;
 	position: relative;
-	left: 60%;
+	left: 50%;
 	top: 32px;
 	text-align: center;
+	font-size: 22px;
+	width: 450px;
+	font-family: Arial;
+	height: 35px;
+}
+
+.head_menu a {
+	color: #FFF;
+	text-decoration: none;
+	border-bottom: 1px solid #FFF;
+	margin: 0;
+	padding-right: 7px;
+	padding-left: 7px;
+    padding-bottom: 10px;
+}
+
+#cur_head_menu {
+	color: #F00;
+	border-bottom: 1px solid #F00;
+
+
+}
+.head_menu a:hover {
+	color: #F00;
+    border-bottom: 1px solid #F00;
+
 }
