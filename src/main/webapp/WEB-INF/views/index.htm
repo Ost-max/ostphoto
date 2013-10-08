@@ -12,19 +12,19 @@
 		<link rel="stylesheet" href="../../resources/galleriffic/css/galleriffic-2.css" type="text/css" />
   </head>
 <body>
-    <div id="header" >
-      <div id="logo" > </div>
-      <div class="head_menu" > 
-         <a href="#" id="cur_head_menu">Main</a>
-         <a href="#">News</a>
-         <a href="#">Portfolio</a>
-         <a href="#">Calendar</a>
-         <a href="#">Contact us</a> 
-      </div>
-    </div>
- <div id="slider" >
-      <div id="gallery" class="content">
 
+	<div id="maincont" >
+	
+	 <div id="logo">
+	 </div>
+	 <div class="head_menu" ><a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="${pageContext.request.contextPath}/booking">Calendar</a><a href="#">Contact us</a>
+	 </div>
+ 
+
+    
+     <div id="slider" >
+	  
+          <div id="gallery" class="content">
         <div class="slideshow-container">
           <div id="loading" class="loader"></div>
           <div id="slideshow" class="slideshow"></div>
@@ -33,28 +33,34 @@
       </div>
       <div id="thumbs" class="navigation">
         <ul class="thumbs noscript">
-          <li> <a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"> <img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0" /> </a>
+          <li> <a class="thumb" name="leaf" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #0"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #0" /> </a>
             <div class="caption">
                 <div class="image-title">Title #0</div>
               <div class="image-desc">Description</div>
             </div>
           </li>
-          <li> <a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1"> <img src="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9_s.jpg" alt="Title #1" /> </a>
+          <li> <a class="thumb" name="drop" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #1"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #1" /> </a>
             <div class="caption"> Any html can be placed here ... </div>
           </li>
-          <li> <a class="thumb" name="bigleaf" href="http://farm3.static.flickr.com/2093/2538168854_f75e408156.jpg" title="Title #2"> <img src="http://farm3.static.flickr.com/2093/2538168854_f75e408156_s.jpg" alt="Title #2" /> </a>
+          <li> <a class="thumb" name="bigleaf" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #2"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #2" /> </a>
             <div class="caption">
               <div class="image-title">Title #2</div>
               <div class="image-desc">Description</div>
             </div>
           </li>
-          <li> <a class="thumb" name="lizard" href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b.jpg" title="Title #3"> <img src="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_s.jpg" alt="Title #3" /> </a>
+          <li> <a class="thumb" name="lizard" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #3"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #3" /> </a>
             <div class="caption">
               <div class="image-title">Title #3</div>
               <div class="image-desc">Description</div>
             </div>
           </li>
-          <li> <a class="thumb" href="http://farm4.static.flickr.com/3150/2538167224_0a6075dd18.jpg" title="Title #4"> <img src="http://farm4.static.flickr.com/3150/2538167224_0a6075dd18_s.jpg" alt="Title #4" /> </a>
+          <li> <a class="thumb" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #4"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #4" /> </a>
+            <div class="caption">
+              <div class="image-title">Title #4</div>
+              <div class="image-desc">Description</div>
+            </div>
+          </li>
+		            <li> <a class="thumb" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #4"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #4" /> </a>
             <div class="caption">
               <div class="image-title">Title #4</div>
               <div class="image-desc">Description</div>
@@ -64,13 +70,14 @@
       </div>
     </div>
     <br>
+	</div>
 
 <script type="text/javascript">
 
 			jQuery(document).ready(function($) {
 				// We only want these styles applied when javascript is enabled
-				$('div.navigation').css({'width' : '200px', 'float' : 'right'});
-				$('div.content').css('display', 'block');
+				$('div.navigation').css({'width' : '333px', 'float' : 'right'});
+				$('div.content').css({'width' : '480px','display' : 'block'});
 
 				// Initially set opacity on thumbs and add
 				// additional styling for hover effect on thumbs
@@ -85,7 +92,7 @@
 				// Initialize Advanced Galleriffic Gallery
 				var gallery = $('#thumbs').galleriffic({
 					delay:                     2500,
-					numThumbs:                 15,
+					numThumbs:                 6,
 					preloadAhead:              10,
 					enableTopPager:            true,
 					enableBottomPager:         true,
@@ -94,8 +101,8 @@
 					controlsContainerSel:      '#controls',
 					captionContainerSel:       '#caption',
 					loadingContainerSel:       '#loading',
-					renderSSControls:          true,
-					renderNavControls:         true,
+					renderSSControls:          false,
+					renderNavControls:         false,
 					playLinkText:              'Play Slideshow',
 					pauseLinkText:             'Pause Slideshow',
 					prevLinkText:              '&lsaquo; Previous Photo',
