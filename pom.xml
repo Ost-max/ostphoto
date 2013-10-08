@@ -15,11 +15,23 @@
 	</properties>
 
 	<pluginRepositories>
-        <pluginRepository>
-            <id>maven.java.net</id>
-            <name>Java.net Maven2 Repository</name>
-            <url>http://download.java.net/maven/2</url>
-        </pluginRepository>
+		<pluginRepository>
+			<id>maven.java.net</id>
+			<name>Java.net Maven2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</pluginRepository>
+
+
+		<pluginRepository>
+			<id>sonatype-oss-public</id>
+			<url>https://oss.sonatype.org/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
 
 	</pluginRepositories>
 	
@@ -215,9 +227,24 @@
 
 	<build>
 
-		<plugins>
+	<plugins>
 
-			<plugin>
+		<plugin>
+			<groupId>com.jelastic</groupId>
+			<artifactId>jelastic-maven-plugin</artifactId>
+			<version>1.7-SNAPSHOT</version>
+			<configuration>
+				<email>Ost-max@yandex.ru</email>
+				<password>sIWZR3yFJC</password>
+				<context>ROOT</context>
+				<environment>ostphoto</environment>
+				<comment>[insert comment if you need it]</comment>
+
+				<api_hoster>app.jelasticloud.com</api_hoster>
+			</configuration>
+		</plugin>
+		
+		<plugin>
 				<groupId>org.glassfish.maven.plugin</groupId>
 				<artifactId>maven-glassfish-plugin</artifactId>
 				<version>2.1</version>
