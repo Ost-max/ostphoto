@@ -8,6 +8,7 @@ body {
 	background-color: #eae5df;
 	margin: 0px;
 	padding: 0px;
+    font-family: 'PT Sans', sans-serif;
 }
 	
 .ostrovsky {
@@ -35,14 +36,13 @@ body {
 .head_menu {
 	position: relative;
 	color: #FFF;
-	left: 390px;
+	left: 428px;
 	top: -20px;
 	text-align: center;
-	font-size: 22px;
-	width: 475px;
-	font-family: Arial;
-	height: 35px;
+	font-size: 14pt;
+	width: 415px;
 	text-decoration: none !important;
+
 }
 
 .head_menu a {
@@ -50,21 +50,21 @@ body {
 	text-decoration: none !important;
 	border-bottom: 1px solid #FFF;
 	margin: 0;
-	padding-right: 5px;
-	padding-left: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
     padding-bottom: 10px;
 }
 
 #cur_head_menu {
-	color: #F00;
-	border-bottom: 1px solid #F00;
-
-
+	color: #ee0000;
+	border-bottom: 1px solid #ee0000;
+	margin: 0;
 }
 
 .head_menu a:hover {
-	color: #F00;
-    border-bottom: 1px solid #F00;
+	color: #ee0000;
+	margin: 0;
+    border-bottom: 1px solid #ee0000;
 	text-decoration: none !important ;
 
 }
@@ -100,4 +100,3 @@ body {
 	width: 200px;
 }
 */
-

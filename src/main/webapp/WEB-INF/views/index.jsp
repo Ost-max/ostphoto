@@ -9,10 +9,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.history.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.opacityrollover.js"></script>
     <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/basic.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/galleriffic-2.css" type="text/css" />
-    </style>
+     <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    
   </head>
   <body>
 	<div id="maincont" >	
@@ -66,9 +66,12 @@
         </ul>
       </div>
     </div>
-    <br>
-	</div>
 
+	</div>
+    <br>   
+    <br>
+    <br>
+        <br>
 <script type="text/javascript">
 
 			jQuery(document).ready(function($) {
