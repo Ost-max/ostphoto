@@ -66,9 +66,7 @@ public class PhotoUtils {
 			AffineTransform at = AffineTransform.getScaleInstance( (double)finalW
 					/ bsrc.getWidth(), (double) finalH / bsrc.getHeight());
 			g.drawRenderedImage(bsrc, at);
-			// add the scaled image
-
-	            
+			// add the scaled image	            
 			return bdest;
 		} catch (Exception e) {
 			return null;
