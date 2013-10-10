@@ -21,7 +21,7 @@
    <div id="photolist" >
           <c:forEach items="${photoList}" var="photo">       
           
-                  <img src="${pageContext.request.contextPath}/admin/photo/original/${photo.update}/${photo.fileName}"  width="30%"
+                  <img src="${pageContext.request.contextPath}/admin/photo/s/${photo.update}/${photo.fileName}"  width="30%"
                   height="30%"/>&nbsp; 
                 </c:forEach>
    </div>

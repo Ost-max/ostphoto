@@ -1,22 +1,22 @@
 package com.ostphoto.app.admin.photo;
 
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-import java.util.jar.Attributes.Name;
 
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,12 +24,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ostphoto.app.Resourse;
 import com.ostphoto.app.admin.IModule;
+import com.ostphoto.app.admin.photo.PhotoUtils.PhotoSize;
 import com.ostphoto.app.admin.photo.domains.Category;
 import com.ostphoto.app.admin.photo.domains.Photo;
 import com.ostphoto.app.admin.photo.services.ICategoryService;
@@ -61,7 +60,6 @@ public class PhotoControler {
         model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
         model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         model.addAttribute("categoryEdit", new Category());
-        model.addAttribute("editOk", Resourse.getOriginalPhotoDirPaths().toString());
         model.addAttribute("photoList",  photoService.getAllPhoto());  
         return "admin";
 	}
@@ -94,8 +92,8 @@ public class PhotoControler {
 	@RequestMapping(value="addcat", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute(value="categoryEdit") Category category, BindingResult result, Model model
 ) {     model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         categoryService.addCategory(category);
+        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
         model.addAttribute("editOk", "Category " + category.getName() + " has been added");
 		return "admin";
 	}
@@ -115,11 +113,12 @@ public class PhotoControler {
 			return "admin";
 		}
 		try {
-			String fileName = PhotoModule.saveFile(photoForm);
+			String fileName = Resourse.saveFile(photoForm);
 			Photo photo = new Photo();
 			photo.setFileName(fileName);
 			photo.setUpdate(Date.valueOf(Resourse.DATE_DIR));
 			photoService.addPhoto(photo);
+	        model.addAttribute("photoList",  photoService.getAllPhoto());  
 			model.addAttribute("uploadOk", "Photo " + photoForm.getFile().getOriginalFilename() + " successfully uploaded.");
 			
 		} catch (IOException e) {
@@ -130,15 +129,36 @@ public class PhotoControler {
 		return "admin";
 	}
 
-	@RequestMapping(value = "/original/{date}/{name}.{ext}",  method = RequestMethod.GET,  produces = {"image/jpeg"})
-	public ResponseEntity<byte[]> getPhoto( @PathVariable("date") final String date, 
-			@PathVariable("name") final String name, 
-			@PathVariable("ext") final String ext) throws IOException {
 	
-		 return new ResponseEntity<byte[]>(Resourse.getPhotoFile(date, name + "." + ext), HttpStatus.OK);		
+	@RequestMapping(value = "/{size}/{date}/{name}.{ext}",  method = RequestMethod.GET,  produces = {"image/jpeg"})
+	public ResponseEntity<byte[]> getPhoto(  @PathVariable("size") String size, @PathVariable("date") final String date, 
+			@PathVariable("name") final String name, 
+			@PathVariable("ext") final String ext) {
+		try {
+		byte[] result;		
+		size = size.toUpperCase();
+		PhotoSize sizeType;
+		sizeType = PhotoSize.valueOf(size);	
+		File photoFile =  Resourse.getPhotoFile(date, name + "." + ext);
+		if(PhotoSize.ORIGINAL.equals(sizeType)) {		  
+			result =  IOUtils.toByteArray(new FileInputStream(photoFile));	
+		} else {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(PhotoUtils.getImage(photoFile, sizeType), "jpg", baos );
+			baos.flush();
+			result =  baos.toByteArray();
+			baos.close();			
+		}
+		 return new ResponseEntity<byte[]>(result, HttpStatus.OK);
+		} catch(IllegalArgumentException  | IOException ex) {
+			return new ResponseEntity<byte[]>(HttpStatus.NOT_FOUND);
+		}	
 	}
 
 
+	
+
+     
 	
 
 }
