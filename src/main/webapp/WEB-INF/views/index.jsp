@@ -1,135 +1,302 @@
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
-  <head>
-    <title>Ostrovsky photography</title>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery-1.3.2.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.galleriffic.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.history.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/galleriffic/js/jquery.opacityrollover.js"></script>
-    <link href="${pageContext.request.contextPath}/resources/sitestyle.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/basic.css" type="text/css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/galleriffic/css/galleriffic-2.css" type="text/css" />
-     <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    
-  </head>
-  <body>
-	<div id="maincont" >	
-	 <div id="logo">
-	 </div>
-	 <div class="head_menu" ><a href="#" id="cur_head_menu">Main</a><a href="#">News</a><a href="#">Portfolio</a><a href="${pageContext.request.contextPath}/booking">Calendar</a><a href="#">Contact us</a>
-	 </div>     
-     <div id="slider" >	  
-          <div id="gallery" class="content">
-        <div class="slideshow-container">
-          <div id="loading" class="loader"></div>
-          <div id="slideshow" class="slideshow"></div>
-        </div>
-        <div id="caption" class="caption-container"></div>
-      </div>
-      <div id="thumbs" class="navigation">
-        <ul class="thumbs noscript">
-          <li> <a class="thumb" name="leaf" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #0"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #0" /> </a>
-            <div class="caption">
-                <div class="image-title">Title #0</div>
-              <div class="image-desc">Description</div>
-            </div>
-          </li>
-          <li> <a class="thumb" name="drop" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #1"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #1" /> </a>
-            <div class="caption"> Any html can be placed here ... </div>
-          </li>
-          <li> <a class="thumb" name="bigleaf" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #2"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #2" /> </a>
-            <div class="caption">
-              <div class="image-title">Title #2</div>
-              <div class="image-desc">Description</div>
-            </div>
-          </li>
-          <li> <a class="thumb" name="lizard" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #3"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #3" /> </a>
-            <div class="caption">
-              <div class="image-title">Title #3</div>
-              <div class="image-desc">Description</div>
-            </div>
-          </li>
-          <li> <a class="thumb" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #4"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #4" /> </a>
-            <div class="caption">
-              <div class="image-title">Title #4</div>
-              <div class="image-desc">Description</div>
-            </div>
-          </li>
-		            <li> <a class="thumb" href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" title="Title #4"> <img src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg" alt="Title #4" /> </a>
-            <div class="caption">
-              <div class="image-title">Title #4</div>
-              <div class="image-desc">Description</div>
-            </div>
-          </li>
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ostphoto</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <script type="text/javascript" src="../../resources/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery.ui.theme.css" />
+
+    <!-- Galleriffic START -->
+    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.galleriffic.js"></script>
+    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.opacityrollover.js"></script>
+    <link rel="stylesheet" href="../../resources/galleriffic/css/basic.css" type="text/css"/>
+    <link rel="stylesheet" href="../../resources/galleriffic/css/galleriffic-2.css" type="text/css"/>
+    <!-- Galleriffic END -->
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../../resources/css/normalize.min.css">
+    <link rel="stylesheet" href="../../resources/css/main.css">
+    <link rel="stylesheet" href="../../resources/css/sitestyle.css">
+
+    <script src="../../resources/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<!-- CONTENT START -->
+
+<div class="header-wrapper">
+    <div class="header">
+        <div class="logo"></div>
+        <ul class="head_menu">
+            <li class="current"><a href="#">Main</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="${pageContext.request.contextPath}/booking">Calendar</a></li>
+            <li><a href="#">Contact us</a></li>
         </ul>
-      </div>
     </div>
+</div>
 
-	</div>
-    <br>   
-    <br>
-    <br>
-        <br>
-<script type="text/javascript">
+<div class="slideshow">
+    <div class="slideshow-inner">
+        <div id="gallery" class="content-container">
+            <div class="slideshow-container">
+                <div id="loading" class="loader"></div>
+                <div id="slideshow" class="slideshow-container"></div>
+            </div>
+            <div id="caption" class="caption-container"></div>
+        </div>
+        <div id="thumbs" class="navigation">
+            <ul class="thumbs">
+                <li><a class="thumb" name="leaf"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #0"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #0"/> </a>
 
-			jQuery(document).ready(function($) {
-				// We only want these styles applied when javascript is enabled
-				$('div.navigation').css({'width' : '333px', 'float' : 'right'});
-				$('div.content').css({'width' : '480px','display' : 'block'});
+                    <div class="caption">
+                        <div class="image-title">Title #0</div>
+                        <div class="image-desc">Description</div>
+                    </div>
+                </li>
+                <li><a class="thumb" name="drop"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #1"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #1"/> </a>
 
-				// Initially set opacity on thumbs and add
-				// additional styling for hover effect on thumbs
-				var onMouseOutOpacity = 0.67;
-				$('#thumbs ul.thumbs li').opacityrollover({
-					mouseOutOpacity:   onMouseOutOpacity,
-					mouseOverOpacity:  1.0,
-					fadeSpeed:         'fast',
-					exemptionSelector: '.selected'
-				});
-				
-				// Initialize Advanced Galleriffic Gallery
-				var gallery = $('#thumbs').galleriffic({
-					delay:                     2500,
-					numThumbs:                 6,
-					preloadAhead:              10,
-					enableTopPager:            true,
-					enableBottomPager:         true,
-					maxPagesToShow:            7,
-					imageContainerSel:         '#slideshow',
-					controlsContainerSel:      '#controls',
-					captionContainerSel:       '#caption',
-					loadingContainerSel:       '#loading',
-					renderSSControls:          false,
-					renderNavControls:         false,
-					playLinkText:              'Play Slideshow',
-					pauseLinkText:             'Pause Slideshow',
-					prevLinkText:              '&lsaquo; Previous Photo',
-					nextLinkText:              'Next Photo &rsaquo;',
-					nextPageLinkText:          'Next &rsaquo;',
-					prevPageLinkText:          '&lsaquo; Prev',
-					enableHistory:             false,
-					autoStart:                 false,
-					syncTransitions:           true,
-					defaultTransitionDuration: 900,
-					onSlideChange:             function(prevIndex, nextIndex) {
-						// 'this' refers to the gallery, which is an extension of $('#thumbs')
-						this.find('ul.thumbs').children()
-							.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-							.eq(nextIndex).fadeTo('fast', 1.0);
-					},
-					onPageTransitionOut:       function(callback) {
-						this.fadeTo('fast', 0.0, callback);
-					},
-					onPageTransitionIn:        function() {
-						this.fadeTo('fast', 1.0);
-					}
-				});
-			});
-		
-		</script>
-    
-  </body>
+                    <div class="caption"> Any html can be placed here ...</div>
+                </li>
+                <li><a class="thumb" name="bigleaf"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #2"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #2"/> </a>
+
+                    <div class="caption">
+                        <div class="image-title">Title #2</div>
+                        <div class="image-desc">Description</div>
+                    </div>
+                </li>
+                <li><a class="thumb" name="lizard"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #3"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #3"/> </a>
+
+                    <div class="caption">
+                        <div class="image-title">Title #3</div>
+                        <div class="image-desc">Description</div>
+                    </div>
+                </li>
+                <li><a class="thumb"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #4"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #4"/> </a>
+
+                    <div class="caption">
+                        <div class="image-title">Title #4</div>
+                        <div class="image-desc">Description</div>
+                    </div>
+                </li>
+                <li><a class="thumb"
+                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
+                       title="Title #4"> <img
+                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                        alt="Title #4"/> </a>
+
+                    <div class="caption">
+                        <div class="image-title">Title #4</div>
+                        <div class="image-desc">Description</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <!-- TODO: fix buggy galleriffic CSS which declares plain .content styles  -->
+    <div class="content-main">
+        <div class="content-news">
+            <h2>Our news</h2>
+            <ul>
+                <li>
+                    <div class="content-news-date">
+                        <span class="content-news-date-number">01</span>
+                        Sep
+                    </div>
+                    <div class="content-news-text">
+                        <h3><a href="#">News 1</a></h3>
+
+                        <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка. Охват
+                            аудитории, как следует из вышесказанного, спорадически развивает сегмент рынка, признавая
+                            определенные рыночные тенденции.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-news-text">
+                        <h3><a>Read more news...</a></h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content-calendar">
+            <h2>Calendar</h2>
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
+
+<div class="content-bottom-wrapper">
+    <div class="content-bottom">
+        <h2>Last added photos</h2>
+        <ul class="recent-photos">
+            <li>
+                <img class="recent-photos-image" src="#" width="200" height="160"/>
+
+                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
+                <div class="recent-photos-date">September 17, 2013</div>
+            </li>
+            <li>
+                <img class="recent-photos-image" src="#" width="200" height="160"/>
+
+                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
+                <div class="recent-photos-date">September 17, 2013</div>
+            </li>
+            <li>
+                <img class="recent-photos-image" src="#" width="200" height="160"/>
+
+                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
+                <div class="recent-photos-date">September 17, 2013</div>
+            </li>
+            <li>
+                <img class="recent-photos-image" src="#" width="200" height="160"/>
+
+                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
+                <div class="recent-photos-date">September 17, 2013</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-wrapper">
+    <div class="footer">
+        <div class="footer-about">
+            <h2>About us</h2>
+
+            <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка.</p>
+
+            <p class="footer-about-copyright">
+                2013 All rights reserved.
+            </p>
+        </div>
+        <div class="footer-social">
+            <h2>Social media links</h2>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT END -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../resources/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        galleryInit($);
+        calendarInit($);
+    });
+
+    calendarInit = function ($) {
+        $("#calendar").datepicker();
+    }
+
+    galleryInit = function ($) {
+        // We only want these styles applied when javascript is enabled
+        $('.slideshow .navigation').css({'width': '333px', 'float': 'right'});
+        $('.slideshow .content-container').css({'width': '480px', 'float': 'left'});
+
+        // Initially set opacity on thumbs and add
+        // additional styling for hover effect on thumbs
+        var onMouseOutOpacity = 0.67;
+        $('#thumbs ul.thumbs li').opacityrollover({
+            mouseOutOpacity: onMouseOutOpacity,
+            mouseOverOpacity: 1.0,
+            fadeSpeed: 'fast',
+            exemptionSelector: '.selected'
+        });
+
+        // Initialize Advanced Galleriffic Gallery
+        var gallery = $('#thumbs').galleriffic({
+            delay: 0,
+            numThumbs: 6,
+            preloadAhead: 10,
+            enableTopPager: true,
+            enableBottomPager: true,
+            maxPagesToShow: 7,
+            imageContainerSel: '#slideshow',
+            controlsContainerSel: '#controls',
+            captionContainerSel: '#caption',
+            loadingContainerSel: '#loading',
+            renderSSControls: false,
+            renderNavControls: false,
+            playLinkText: 'Play Slideshow',
+            pauseLinkText: 'Pause Slideshow',
+            prevLinkText: '&lsaquo; Previous Photo',
+            nextLinkText: 'Next Photo &rsaquo;',
+            nextPageLinkText: 'Next &rsaquo;',
+            prevPageLinkText: '&lsaquo; Prev',
+            enableHistory: false,
+            autoStart: false,
+            syncTransitions: true,
+            defaultTransitionDuration: 900,
+            onSlideChange: function (prevIndex, nextIndex) {
+                // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                this.find('ul.thumbs').children()
+                        .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                        .eq(nextIndex).fadeTo('fast', 1.0);
+            },
+            onPageTransitionOut: function (callback) {
+                this.fadeTo('fast', 0.0, callback);
+            },
+            onPageTransitionIn: function () {
+                this.fadeTo('fast', 1.0);
+            }
+        });
+    }
+</script>
+<!--
+Google Analytics
+<script>
+     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+     g.src='//www.google-analytics.com/ga.js';
+     s.parentNode.insertBefore(g,s)}(document,'script'));
+ </script> -->
+</body>
 </html>
+
 

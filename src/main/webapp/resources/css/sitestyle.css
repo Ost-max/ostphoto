@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
+
+/* COMMON START */
+
+body {
+    background-color: #eae5df;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+h1,h2 {
+    font-family: 'Comfortaa', cursive;
+    letter-spacing: 1pt;
+}
+
+* {
+    line-height: 15pt;
+}
+
+p, pre, a {
+    font-size: 11pt;
+}
+
+.h2 {
+    font-size: 21pt;
+    font-weight: bold;
+}
+
+.header, .content-main, .content-bottom, .footer, .slideshow {
+    margin-left: auto;
+    margin-right: auto;
+    width: 935px;
+}
+
+/* COMMON END */
+
+/* HEADER START */
+
+.header-wrapper {
+    background: url('../img/header_bg.png') no-repeat top left;
+    height: 105px;
+}
+
+.header-wrapper .logo {
+    background: url('../img/logo.png') no-repeat top left;
+    width: 196px;
+    height: 55px;
+    margin-top: 25px; /* (.header-wrapper.height - .logo.height) / 2 */
+    float: left;
+}
+
+.head_menu {
+    list-style: none;
+    height: 40px;
+    width: 470px;
+    margin: 19px 0 0 0; /* (.header-wrapper.height - .head-menu.height) / 2 - .head_menu li.padding-top */
+    padding: 0;
+    float: right;
+}
+
+.head_menu li {
+    float: left;
+    padding: 13px;
+    border-bottom: 1px solid #fff;
+}
+
+.head_menu li a {
+    font-size: 14pt;
+    text-decoration: none;
+    color: #fff;
+}
+
+.head_menu li.current {
+    border-bottom: 1px solid #ab1c00;
+}
+
+.head_menu li.current a {
+    color: #ab1c00;
+    font-weight: bold;
+}
+
+/* HEADER END */
+
+/* SLIDESHOW START */
+
+.slideshow {
+    padding: 30px 0;
+}
+
+.slideshow .slideshow-inner {
+    width: 838px;
+    position: relative;
+    background-color: #FFF;
+    display: block;
+    height: 500px;
+    border: 1px solid #d9d4ce;
+    margin: 0 auto;
+}
+
+.slideshow .content-container {
+    top: 0;
+    height: 100%;
+}
+
+/* SLIDESHOW END */
+
+/* CONTENT COMMON START */
+.content-main a, .content-bottom a {
+    color: #ab1c00;
+}
+/* CONTENT COMMON END */
+
+/* CONTENT START */
+
+.content-wrapper {
+    background: #fff;
+    height: 450px;
+    border-top: #d9d4ce 1px solid;
+    border-bottom: #d9d4ce 1px solid;
+}
+
+.content-main a {
+    color: #ab1c00;
+}
+
+.content-news {
+    float: left;
+    height: 450px;
+    width: 615px; /* .content.width - .content-calendar.width */
+}
+
+.content-news ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-news ul li {
+    padding: 0 0 25px 85px;
+}
+
+.content-news-date {
+    border-radius: 50%;
+    background-color: #ab1c00;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    margin-left: -70px;
+    float: left;
+    clear: right;
+}
+
+.content-news-date-number {
+    display: block;
+    font-size: 24pt;
+    margin-bottom: 10px;
+    margin-top: 17px;
+    line-height: 10pt;
+}
+
+.content-news-text {
+    margin-left: 15px;
+}
+
+.content-news h3 {
+    margin: 0;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.content-news h3 a {
+    text-decoration: underline;
+}
+
+.content-news p {
+    margin: 0;
+}
+
+.content-calendar {
+    float: right;
+    width: 280px;
+    padding: 0 20px;
+}
+
+.content-calendar h2 {
+    text-align: center;
+}
+
+/* Styles for JQuery-UI */
+.ui-datepicker-inline {
+    width: 280px;
+}
+
+/* CONTENT END */
+
+/* CONTENT BOTTOM START */
+.content-bottom-wrapper {
+    height: 370px;
+}
+
+.content-bottom {
+    margin: 35px auto 85px auto;
+}
+
+.recent-photos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 935px;
+    overflow: hidden;
+}
+
+.recent-photos li {
+    float: left;
+    height: 200px;
+    width: 200px;
+    padding: 12px;
+    background-color: #fff;
+    border: #d9d4ce 1px solid;
+    margin-right: 7px;
+}
+
+.recent-photos-date {
+    font-size: 9pt;
+    color: #a69683;
+}
+
+/* CONTENT BOTTOM END */
+
+/* FOOTER START */
+.footer-wrapper {
+    height: 164px;
+    background: url('../img/footer.jpg');
+}
+
+.footer {
+    color: #fff;
+}
+
+.footer h2 {
+    color: #ab1c00;
+}
+
+.footer-about {
+    float: left;
+}
+
+.footer-about-copyright {
+    margin-top: 30px;
+}
+
+.footer-social {
+    float: right;
+    width: 250px;
+}
+
+/* FOOTER END */
