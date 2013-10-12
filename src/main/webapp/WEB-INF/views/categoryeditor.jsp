@@ -4,7 +4,7 @@
   
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %> 
 <div id="cat" >
- <base href="${pageContext.request.contextPath}">
+
         <h3>Categories:</h3>
          ${editOk}<br>
        <c:forEach items="${categoryList}" var="category">                   
@@ -21,7 +21,6 @@
    <div id="photolist" >
           <c:forEach items="${photoList}" var="photo">       
           
-                  <img src="${pageContext.request.contextPath}/admin/photo/original/${photo.update}/${photo.fileName}"  width="30%"
-                  height="30%"/>&nbsp; 
+                  <img src="${pageContext.request.contextPath}/admin/photo/s/${photo.update}/${photo.fileName}" />&nbsp; 
                 </c:forEach>
    </div>
