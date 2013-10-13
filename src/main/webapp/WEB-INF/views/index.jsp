@@ -16,22 +16,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <script type="text/javascript" src="../../resources/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/jquery-ui-1.10.3.custom.min.js"></script>
-    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery-ui.min.css" />
-    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery.ui.theme.css" />
-
-    <!-- Galleriffic START -->
-    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.galleriffic.js"></script>
-    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.opacityrollover.js"></script>
-    <link rel="stylesheet" href="../../resources/galleriffic/css/basic.css" type="text/css"/>
-    <link rel="stylesheet" href="../../resources/galleriffic/css/galleriffic-2.css" type="text/css"/>
-    <!-- Galleriffic END -->
-
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="../../resources/css/normalize.min.css">
-    <link rel="stylesheet" href="../../resources/css/main.css">
     <link rel="stylesheet" href="../../resources/css/sitestyle.css">
 
     <script src="../../resources/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -165,6 +149,7 @@
         </div>
         <div class="content-calendar">
             <h2>Calendar</h2>
+
             <div id="calendar"></div>
         </div>
     </div>
@@ -175,25 +160,25 @@
         <h2>Last added photos</h2>
         <ul class="recent-photos">
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
@@ -221,8 +206,10 @@
 
 <!-- CONTENT END -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../resources/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<script type="text/javascript" src="../../resources/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="../../resources/galleriffic/js/jquery.galleriffic.js"></script>
+<script type="text/javascript" src="../../resources/galleriffic/js/jquery.opacityrollover.js"></script>
 
 <script>
     jQuery(document).ready(function ($) {
@@ -298,5 +285,4 @@ Google Analytics
  </script> -->
 </body>
 </html>
-
 

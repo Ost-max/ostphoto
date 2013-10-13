@@ -6,7 +6,7 @@ public class UploadPhotoForm  {
 
 	private  MultipartFile file;
 	
-	private  String categoryid;
+	private  String category;
 
 	public MultipartFile  getFile() {
 		return file;
@@ -16,12 +16,12 @@ public class UploadPhotoForm  {
 		this.file = file;
 	}
 
-	public String getCategoryid() {
-		return categoryid;
+	public String getCategory() {
+		return category;
 	}
 	
-	public void setCategoryid(String categoryId) {
-		this.categoryid = categoryId;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 
