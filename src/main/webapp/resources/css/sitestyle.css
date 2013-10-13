@@ -1,6 +1,17 @@
 @charset "utf-8";
 
+/* TODO We need to minify the CSS below and combine all imports into 1 file at compile time */
+/* Google Font imports */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
+/* JQuery UI imports */
+@import url(../../resources/css/jquery-ui-theme/jquery-ui.min.css);
+@import url(../../resources/css/jquery-ui-theme/jquery.ui.theme.css);
+@import url(../../resources/galleriffic/css/basic.css);
+@import url(../../resources/galleriffic/css/galleriffic-2.css);
+/* HTML5 Boilerplate imports */
+@import url(../../resources/css/normalize.min.css);
+@import url(../../resources/css/main.css);
 
 /* COMMON START */
 
@@ -9,8 +20,7 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
-
-h1,h2 {
+h1, h2 {
     font-family: 'Comfortaa', cursive;
     letter-spacing: 1pt;
 }
@@ -110,6 +120,7 @@ p, pre, a {
 .content-main a, .content-bottom a {
     color: #ab1c00;
 }
+
 /* CONTENT COMMON END */
 
 /* CONTENT START */
