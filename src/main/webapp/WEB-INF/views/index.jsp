@@ -10,28 +10,12 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Ostphoto</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <script type="text/javascript" src="../../resources/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/jquery-ui-1.10.3.custom.min.js"></script>
-    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery-ui.min.css" />
-    <link rel="stylesheet" href="../../resources/css/jquery-ui-theme/jquery.ui.theme.css" />
-
-    <!-- Galleriffic START -->
-    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.galleriffic.js"></script>
-    <script type="text/javascript" src="../../resources/galleriffic/js/jquery.opacityrollover.js"></script>
-    <link rel="stylesheet" href="../../resources/galleriffic/css/basic.css" type="text/css"/>
-    <link rel="stylesheet" href="../../resources/galleriffic/css/galleriffic-2.css" type="text/css"/>
-    <!-- Galleriffic END -->
-
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="../../resources/css/normalize.min.css">
-    <link rel="stylesheet" href="../../resources/css/main.css">
     <link rel="stylesheet" href="../../resources/css/sitestyle.css">
 
     <script src="../../resources/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -151,20 +135,38 @@
                     <div class="content-news-text">
                         <h3><a href="#">News 1</a></h3>
 
-                        <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка. Охват
-                            аудитории, как следует из вышесказанного, спорадически развивает сегмент рынка, признавая
-                            определенные рыночные тенденции.</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-news-date">
+                        <span class="content-news-date-number">01</span>
+                        Sep
+                    </div>
+                    <div class="content-news-text">
+                        <h3><a href="#">News 1</a></h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt.</p>
                     </div>
                 </li>
                 <li>
                     <div class="content-news-text">
-                        <h3><a>Read more news...</a></h3>
+                        <h3><a href="#">Read more news...</a></h3>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="content-calendar">
             <h2>Calendar</h2>
+
             <div id="calendar"></div>
         </div>
     </div>
@@ -175,25 +177,33 @@
         <h2>Last added photos</h2>
         <ul class="recent-photos">
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="#" width="200" height="160"/>
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
 
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
@@ -207,7 +217,7 @@
         <div class="footer-about">
             <h2>About us</h2>
 
-            <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка.</p>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
 
             <p class="footer-about-copyright">
                 2013 All rights reserved.
@@ -221,8 +231,10 @@
 
 <!-- CONTENT END -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../resources/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<script type="text/javascript" src="../../resources/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="../../resources/galleriffic/js/jquery.galleriffic.js"></script>
+<script type="text/javascript" src="../../resources/galleriffic/js/jquery.opacityrollover.js"></script>
 
 <script>
     jQuery(document).ready(function ($) {
@@ -298,5 +310,3 @@ Google Analytics
  </script> -->
 </body>
 </html>
-
-
