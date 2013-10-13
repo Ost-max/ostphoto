@@ -8,7 +8,7 @@
         <h3>Categories:</h3>
          ${editOk}<br>
        <c:forEach items="${categoryList}" var="category">                   
-                  <a href="cat/photo/${category.name}">${category.name}</a> &nbsp; 
+                  <a href="${pageContext.request.contextPath}/admin/photo/${category.name}">${category.name}</a> &nbsp; 
                 </c:forEach>
                 <br>
         <form:form method="post" commandName="categoryEdit" action="${pageContext.request.contextPath}/admin/photo/addcat" enctype="multipart/form-data">
@@ -20,7 +20,6 @@
    <br>
    <div id="photolist" >
           <c:forEach items="${photoList}" var="photo">       
-          
                   <img src="${pageContext.request.contextPath}/admin/photo/s/${photo.update}/${photo.fileName}" />&nbsp; 
                 </c:forEach>
    </div>

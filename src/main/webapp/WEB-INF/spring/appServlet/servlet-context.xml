@@ -64,13 +64,13 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		
 		
-		<property name="url" value="jdbc:mysql://mysql-ostphoto.jelasticloud.com/ostphoto" />
-		<property name="username" value="root" />
-		<property name="password" value="K8YG9rCp4r" />
-		
-<!-- 		<property name="url" value="jdbc:mysql://127.0.0.1/stady" /> -->
+<!-- 		<property name="url" value="jdbc:mysql://mysql-ostphoto.jelasticloud.com/ostphoto" /> -->
 <!-- 		<property name="username" value="root" /> -->
-<!-- 		<property name="password" value="abc379" /> -->
+<!-- 		<property name="password" value="K8YG9rCp4r" /> -->
+		
+		<property name="url" value="jdbc:mysql://127.0.0.1/stady" />
+		<property name="username" value="root" />
+		<property name="password" value="abc379" />
 		
 
 		<!-- <property name="url" value="jdbc:mysql://10.0.6.93/:3306" /> -->

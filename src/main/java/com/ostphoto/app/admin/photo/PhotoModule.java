@@ -1,22 +1,10 @@
 package com.ostphoto.app.admin.photo;
 
-import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.SecureRandom;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.ostphoto.app.admin.IModule;
-import com.ostphoto.app.admin.photo.domains.Category;
-import com.ostphoto.app.admin.photo.domains.Photo;
-import com.ostphoto.app.admin.photo.services.ICategoryService;
+import com.ostphoto.app.admin.photo.services.IPhotoService;
 
 
 public class PhotoModule implements IModule {
@@ -25,11 +13,11 @@ public class PhotoModule implements IModule {
    final static String VIEW_NAME = "photo";
    
  
-	private ICategoryService categoryService;
+	private IPhotoService photoService;
 
 	
-	public PhotoModule(ICategoryService categoryService) {
-		this.categoryService = categoryService;
+	public PhotoModule(IPhotoService photoService) {
+		this.photoService = photoService;
 	}
 	
 
@@ -42,7 +30,7 @@ public class PhotoModule implements IModule {
 	public Map<String, ?> getSmallAttributes() {
 		Map<String, Object> attrs = new HashMap<String, Object>();
 		attrs.put(VIEW_NAME + "UpForm", new UploadPhotoForm());
-        attrs.put("categoryList", categoryService.getAllCategories());
+        attrs.put("categoryList", photoService.getAllCategories());
 		return attrs;
 	}
 

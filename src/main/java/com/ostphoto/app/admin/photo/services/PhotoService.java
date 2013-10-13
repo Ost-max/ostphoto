@@ -28,6 +28,28 @@ public class PhotoService implements IPhotoService {
 	public List<Photo> getAllPhoto() {
 		return photoDao.getAllPhoto();
 	}
+	
+	
+	@Override
+    @Transactional
+	public void addCategory(Category cathegory) {
+		photoDao.addCategory(cathegory);
+
+	}
+
+	@Override
+    @Transactional
+	public List<Category> getAllCategories() {
+		// TODO Auto-generated method stub
+		return photoDao.getAllCategories();
+	}
+
+	@Override
+    @Transactional
+	public List<Photo> getPhotosByCatName(String name) {
+		// TODO Auto-generated method stub
+		return photoDao.getPhotosByCatName(name);
+	}
 		
 
 }
