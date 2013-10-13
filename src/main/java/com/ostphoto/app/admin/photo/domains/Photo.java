@@ -1,11 +1,14 @@
 package com.ostphoto.app.admin.photo.domains;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -21,9 +24,8 @@ public class Photo {
     @GeneratedValue
 	private int id;
 	
-//	@Column(name = "cathegories")
-//	@OneToMany()
-//	private List<Category> cathegories;
+	@ManyToMany(mappedBy="photos", fetch=FetchType.LAZY)
+	private List<Category> categories;
 	
 	@Column(name = "fileName")
 	private String fileName;
@@ -42,12 +44,18 @@ public class Photo {
 	public void setUpdate(Date update) {
 		this.update = update;
 	}
-	//	public List<Category> getCathegories() {
-//		return cathegories;
-//	}
-//	public void setCathegories(List<Category> cathegories) {
-//		this.cathegories = cathegories;
-//	}
+	
+	
+	public List<Category> getCategories() {
+		return categories;
+	}
+		
+		
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
+	
 	public String getFileName() {
 		return fileName;
 	}

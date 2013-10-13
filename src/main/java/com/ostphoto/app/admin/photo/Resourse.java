@@ -8,14 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import com.ostphoto.app.admin.photo.domains.Photo;
 
 
 public class Resourse {

@@ -4,11 +4,9 @@ package com.ostphoto.app.admin.photo;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 import javax.imageio.ImageIO;
@@ -31,10 +29,7 @@ import com.ostphoto.app.admin.IModule;
 import com.ostphoto.app.admin.photo.PhotoUtils.PhotoSize;
 import com.ostphoto.app.admin.photo.domains.Category;
 import com.ostphoto.app.admin.photo.domains.Photo;
-import com.ostphoto.app.admin.photo.services.ICategoryService;
 import com.ostphoto.app.admin.photo.services.IPhotoService;
-
-
 
 
 
@@ -49,8 +44,7 @@ public class PhotoControler {
 	
 	@Autowired
 	private UploadPhotoFormValidator upfValidator;	
-	@Autowired
-	private ICategoryService categoryService;
+
 	@Autowired
 	private IPhotoService photoService;
 		
@@ -58,9 +52,19 @@ public class PhotoControler {
 	@RequestMapping(method = RequestMethod.GET)
 	public String start(Locale locale, Model model) {
         model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
+        model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
         model.addAttribute("categoryEdit", new Category());
         model.addAttribute("photoList",  photoService.getAllPhoto());  
+        return "admin";
+	}
+	
+	
+	@RequestMapping(value="/{cat}", method = RequestMethod.GET)
+	public String getPhotosByCat(@PathVariable("cat") String catName, Locale locale, Model model) {
+        model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
+        model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
+        model.addAttribute("categoryEdit", new Category());
+        model.addAttribute("photoList",  photoService.getPhotosByCatName(catName));  
         return "admin";
 	}
 	
@@ -81,7 +85,7 @@ public class PhotoControler {
 //	        }
 //	        model.addAttribute("editOk", respaths);
 //	        model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-//	        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
+//	        model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
 //	        model.addAttribute("categoryEdit", new Category());
 //	        model.addAttribute("photoList",  photoService.getAllPhoto());
 //	        return "admin";
@@ -92,8 +96,8 @@ public class PhotoControler {
 	@RequestMapping(value="addcat", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute(value="categoryEdit") Category category, BindingResult result, Model model
 ) {     model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-        categoryService.addCategory(category);
-        model.addAllAttributes(new PhotoModule(categoryService).getSmallAttributes());  
+        photoService.addCategory(category);
+        model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
         model.addAttribute("editOk", "Category " + category.getName() + " has been added");
 		return "admin";
 	}
@@ -105,7 +109,7 @@ public class PhotoControler {
 ) {
 		logger.info("uploadPhoto start");
 		model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-		model.addAttribute("categoryList", categoryService.getAllCategories());
+		model.addAttribute("categoryList", photoService.getAllCategories());
         model.addAttribute("categoryEdit", new Category());
 		upfValidator.validate(photoForm, result);
 		if (result.hasErrors()) {
