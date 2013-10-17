@@ -7,7 +7,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 
@@ -39,7 +41,7 @@ import com.ostphoto.app.admin.photo.services.IPhotoService;
 @Controller
 @RequestMapping("/admin/photo")
 public class PhotoControler {
-	
+	 
 	private static final Logger logger = LoggerFactory.getLogger(PhotoModule.class);
 	
 	@Autowired
@@ -64,40 +66,21 @@ public class PhotoControler {
         model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
         model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
         model.addAttribute("categoryEdit", new Category());
-        model.addAttribute("photoList",  photoService.getPhotosByCatName(catName));  
-        return "admin";
+		if (!Category.ALL.equalsIgnoreCase(catName)) {
+			model.addAttribute("photoList",photoService.getPhotosByCatName(catName));
+		} else {
+			model.addAttribute("photoList", photoService.getAllPhoto());
+		}
+		return "admin";
 	}
 	
-//	@RequestMapping(value="test/{paths}", method = RequestMethod.GET)
-//	public String test( @PathVariable("paths") final String paths, Locale locale, Model model) throws IOException {
-//		String[] splitted = paths.split("_");
-//		List<String> splarr = Arrays.asList(splitted);
-//	    List<String> respaths = new ArrayList<String>();
-//		 Path dir = Paths.get(Resourse.ROOT_DIR);
-//			respaths.add(" #" + dir.toString() + "# ");
-//		if(!splarr.contains("nulle")){
-//			dir = Paths.get(Resourse.ROOT_DIR, splitted);
-//		} 		
-//
-//	     DirectoryStream<Path> stream = Files.newDirectoryStream(dir);
-//	        for (Path file: stream) {
-//	        	respaths.add(file.getFileName().toString());
-//	        }
-//	        model.addAttribute("editOk", respaths);
-//	        model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-//	        model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
-//	        model.addAttribute("categoryEdit", new Category());
-//	        model.addAttribute("photoList",  photoService.getAllPhoto());
-//	        return "admin";
-//		
-//	}   
-
 
 	@RequestMapping(value="addcat", method = RequestMethod.POST)
 	public String addCategory(@ModelAttribute(value="categoryEdit") Category category, BindingResult result, Model model
 ) {     model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
         photoService.addCategory(category);
         model.addAllAttributes(new PhotoModule(photoService).getSmallAttributes());  
+        model.addAttribute("photoList",  photoService.getAllPhoto());  
         model.addAttribute("editOk", "Category " + category.getName() + " has been added");
 		return "admin";
 	}
@@ -108,8 +91,9 @@ public class PhotoControler {
 	public String uploadPhoto(@ModelAttribute(value="photoUpForm") UploadPhotoForm photoForm, BindingResult result, Model model
 ) {
 		logger.info("uploadPhoto start");
+		Map<Integer,Category> categories = new HashMap<>();
+		for (Category cat : photoService.getAllCategories()) categories.put(cat.getId(),cat);
 		model.addAttribute(IModule.VIEW_LIST, Arrays.asList(PhotoModule.SMALL_VIEW_NAME, "categoryeditor"));
-		model.addAttribute("categoryList", photoService.getAllCategories());
         model.addAttribute("categoryEdit", new Category());
 		upfValidator.validate(photoForm, result);
 		if (result.hasErrors()) {
@@ -120,16 +104,20 @@ public class PhotoControler {
 			String fileName = Resourse.saveFile(photoForm);
 			Photo photo = new Photo();
 			photo.setFileName(fileName);
-			photo.setUpdate(Date.valueOf(Resourse.DATE_DIR));
+			for(String catId : photoForm.getCategory()) {
+				photo.getCategories().add(categories.get(Integer.valueOf(catId)));
+			}
+			photo.setUpdate(Date.valueOf(Resourse.DATE_DIR));	
 			photoService.addPhoto(photo);
 	        model.addAttribute("photoList",  photoService.getAllPhoto());  
-			model.addAttribute("uploadOk", "Photo " + photoForm.getFile().getOriginalFilename() + " successfully uploaded.");
-			
+			model.addAttribute("uploadOk", "Photo " + photoForm.getFile().getOriginalFilename() + " successfully uploaded. " 
+	        + photoForm.getCategory());
 		} catch (IOException e) {
 			logger.error("Upload I/O error: ", e);
 			result.rejectValue("file", "err1", e.getClass().getName() + ": "
 					+ e.getMessage());
 		}
+		model.addAttribute("categoryList", categories.values());
 		return "admin";
 	}
 

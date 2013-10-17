@@ -11,14 +11,14 @@ public interface IPhotoDao {
 	public void addPhoto(Photo photo);
 	
 	public List<Photo> getAllPhoto();
-
 	
 	public void addCategory(Category category);
 			
 	public List<Category> getAllCategories();
 	
     public List<Photo> getPhotosByCatName(String name);
-
+    
+//    public HashMap<Integer, Category> getCategoriesMap(Integer id);
 	
 
 

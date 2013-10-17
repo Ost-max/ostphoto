@@ -1,14 +1,12 @@
 package com.ostphoto.app.admin.photo.domains;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -18,6 +16,7 @@ import javax.persistence.Table;
 @Table(name="Category")
 public class Category {
 
+	public static String ALL = "all";
 	
 	@Id
     @Column(name = "ID")
@@ -28,10 +27,8 @@ public class Category {
 	private String name;
     
     
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="Photo_Cat", joinColumns={@JoinColumn(name="Cat")}, 
-            inverseJoinColumns={@JoinColumn(name="Photo")})
-    private Set<Photo> photos;
+	@ManyToMany(mappedBy="categories") 
+    private Set<Photo> photos = new HashSet<>();
 
     
 	public Set<Photo> getPhotos() {

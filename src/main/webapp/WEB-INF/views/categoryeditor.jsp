@@ -7,13 +7,14 @@
 
         <h3>Categories:</h3>
          ${editOk}<br>
+            <a href="${pageContext.request.contextPath}/admin/photo/all">all</a> &nbsp;  
        <c:forEach items="${categoryList}" var="category">                   
                   <a href="${pageContext.request.contextPath}/admin/photo/${category.name}">${category.name}</a> &nbsp; 
                 </c:forEach>
                 <br>
         <form:form method="post" commandName="categoryEdit" action="${pageContext.request.contextPath}/admin/photo/addcat" enctype="multipart/form-data">
             <form:errors path="*" cssClass="upfErr" /><br>
-            <form:input path="name" type="text"/>  
+            <form:input path="name" type="text"  />  
             <input  type="submit" value="add"/>
    </form:form>
    </div>

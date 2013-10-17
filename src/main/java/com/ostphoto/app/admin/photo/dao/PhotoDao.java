@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,10 @@ public class PhotoDao implements IPhotoDao {
     
 	@Override
 	public void addPhoto(Photo photo) {
-		sessionFactory.getCurrentSession().save(photo);
+		 Session session = sessionFactory.openSession();
+		 session.beginTransaction();
+		 session.save(photo);
+		 session.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -38,7 +42,7 @@ public class PhotoDao implements IPhotoDao {
         sessionFactory.getCurrentSession().save(category);
     }      
 	
-	
+	 
 	
 	
 	@SuppressWarnings("unchecked")
@@ -58,18 +62,18 @@ public class PhotoDao implements IPhotoDao {
 	            " select p "
                 + " from Photo p INNER JOIN p.categories category"
                 + " where category.name = :catName ").setString("catName", catName);
-	   
-	   
-//		Long driver_id = driver.getId();
-//	    Query query = session.createQuery(
-//	            " select b "
-//	                + " from Bus b INNER JOIN b.drivers driver"
-//	                + " where driver.id = :driverId "
-//	        )
-//	            .setLong(«driverId», driver_id);
-//	        busses = (List<Bus>) query.list();
-		return query.list();
+	   		return query.list();
 	}
+	
+
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public HashMap<Integer, Category> getCategoriesMap(Integer id) {
+//		
+//			 Query query =  sessionFactory.getCurrentSession().createQuery(
+//		            " Select new map(category.id, category) from Category category");
+//		   		return (HashMap<Integer, Category>) query.uniqueResult();
+//	}
 
 
 }

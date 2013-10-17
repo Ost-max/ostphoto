@@ -16,5 +16,6 @@ public interface IPhotoService {
    public List<Category> getAllCategories();
 
    public List<Photo> getPhotosByCatName(String name);
-   
+      
+//   public HashMap<Integer, Category> getCategoriesMap(Integer id);
 }

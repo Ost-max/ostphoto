@@ -41,7 +41,8 @@ public class PhotoService implements IPhotoService {
     @Transactional
 	public List<Category> getAllCategories() {
 		// TODO Auto-generated method stub
-		return photoDao.getAllCategories();
+		List<Category> categories =  photoDao.getAllCategories();	
+		return categories;
 	}
 
 	@Override
@@ -50,6 +51,13 @@ public class PhotoService implements IPhotoService {
 		// TODO Auto-generated method stub
 		return photoDao.getPhotosByCatName(name);
 	}
+
+//	@Override
+//	@Transactional
+//	public HashMap<Integer, Category> getCategoriesMap(Integer id) {
+//		// TODO Auto-generated method stub
+//		return photoDao.getCategoriesMap(id);
+//	}
 		
 
 }

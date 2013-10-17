@@ -1,13 +1,16 @@
 package com.ostphoto.app.admin.photo.domains;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -24,8 +27,11 @@ public class Photo {
     @GeneratedValue
 	private int id;
 	
-	@ManyToMany(mappedBy="photos", fetch=FetchType.LAZY)
-	private List<Category> categories;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="Photo_Cat", joinColumns={@JoinColumn(name="Photo")}, 
+            inverseJoinColumns={@JoinColumn(name="Cat")})
+	private List<Category> categories = new ArrayList<>();
 	
 	@Column(name = "fileName")
 	private String fileName;

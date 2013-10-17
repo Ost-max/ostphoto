@@ -10,7 +10,7 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Ostphoto</title>
     <meta name="description" content="">
@@ -135,14 +135,31 @@
                     <div class="content-news-text">
                         <h3><a href="#">News 1</a></h3>
 
-                        <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка. Охват
-                            аудитории, как следует из вышесказанного, спорадически развивает сегмент рынка, признавая
-                            определенные рыночные тенденции.</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="content-news-date">
+                        <span class="content-news-date-number">01</span>
+                        Sep
+                    </div>
+                    <div class="content-news-text">
+                        <h3><a href="#">News 1</a></h3>
+
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt.</p>
                     </div>
                 </li>
                 <li>
                     <div class="content-news-text">
-                        <h3><a>Read more news...</a></h3>
+                        <h3><a href="#">Read more news...</a></h3>
                     </div>
                 </li>
             </ul>
@@ -160,26 +177,30 @@
         <h2>Last added photos</h2>
         <ul class="recent-photos">
             <li>
-                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
-
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
-
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
-
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
             <li>
-                <img class="recent-photos-image" src="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg" width="200" height="160"/>
-
+                <img class="recent-photos-image"
+                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
+                     width="200" height="160"/>
                 <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
@@ -192,7 +213,7 @@
         <div class="footer-about">
             <h2>About us</h2>
 
-            <p>Информационная связь с потребителем допускает медиамикс, расширяя долю рынка.</p>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
 
             <p class="footer-about-copyright">
                 2013 All rights reserved.
