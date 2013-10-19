@@ -64,6 +64,17 @@ public class PhotoDao implements IPhotoDao {
                 + " where category.name = :catName ").setString("catName", catName);
 	   		return query.list();
 	}
+
+	@Override
+	public void deletePhoto(Photo photo) {
+		// TODO Auto-generated method stub
+		 sessionFactory.getCurrentSession().delete(photo);
+	}
+
+	@Override
+	public Photo getPhotoById(Integer id) {	   
+		return  (Photo) sessionFactory.getCurrentSession().get(Photo.class, id);
+	}
 	
 
 //	@SuppressWarnings("unchecked")

@@ -28,7 +28,12 @@ public class Photo {
 	private int id;
 	
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    public int getId() {
+		return id;
+	}
+
+
+	@ManyToMany 
     @JoinTable(name="Photo_Cat", joinColumns={@JoinColumn(name="Photo")}, 
             inverseJoinColumns={@JoinColumn(name="Cat")})
 	private List<Category> categories = new ArrayList<>();

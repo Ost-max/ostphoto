@@ -1,18 +1,61 @@
 @CHARSET "UTF-8";
 
-
+h3 {
+  margin: 0px;
+}
 #cat  {
-	heigth: 100px;
-	width: 400px;
-	border: 1px solid grey;
-	padding: 5px;
-	margin: 10px;
+	width: 950px;
+	margin: 20px;
+
+
 }
 
 #photoup  {
-	heigth: 100px;
-	width: 400px;
+	width: 950px;
+	margin: 20px;
+}
+	
+	
+#photolist {
+	width: 950px;
 	padding: 5px;
+	margin: 20px;
+	overflow: hidden;
+}
+	
+
+.photocontainer {
+	float: left;
 	margin: 10px;
-	border: 1px solid grey;
-	}
+    border: #d9d4ce 1px solid;
+	height: 160px;
+	width: 160px;
+}
+
+.photosetings {
+   height: 20px;
+   width: 100%;	
+
+}
+
+
+.photosetings a {
+  padding-right: 5px;  
+  font-size: 15px;
+  float: right;
+  color: red;
+  text-decoration: none;
+}
+
+.imgholder {
+   height: 120px;
+   width: 120px;	
+    border: #d9d4ce 1px solid;
+   margin: 0 auto;
+   overflow: hidden;   
+   background-position: center center;
+   
+}
+
+
+

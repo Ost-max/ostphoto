@@ -13,7 +13,7 @@
 		       <base href="${pageContext.request.contextPath}">
 		
 </head>
-       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/adminstyle.css">
+       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminstyle.css">
 <body>
 <a href="<c:url value="/admin"/>">Main</a>
 <a href="<c:url value="/admin/photo"/>">Photo</a>

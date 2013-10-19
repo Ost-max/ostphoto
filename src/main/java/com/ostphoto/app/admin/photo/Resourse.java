@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.sql.Date;
-
+import com.ostphoto.app.admin.photo.domains.Photo;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -62,6 +62,12 @@ public class Resourse {
 		Path path = Files.createFile(dir.resolve(fileNameString));
 		Files.write(path, file.getBytes());
 		return fileNameString;
+	}
+	
+	
+	
+	public static void deletePhoto(Photo photo) throws IOException {
+		Files.delete(Paths.get(ROOT_DIR, PHOTO_DIR_NAME, ORIGINAL_DIR_NAME, photo.getUpdate().toString(), photo.getFileName()));
 	}
 //	public static List<String> convertPhotosToUrl(List<Photo> allPhoto) {
 //		List<String> urlList = new ArrayList<String>();

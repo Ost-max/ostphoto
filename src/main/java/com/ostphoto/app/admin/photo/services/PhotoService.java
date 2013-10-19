@@ -52,6 +52,19 @@ public class PhotoService implements IPhotoService {
 		return photoDao.getPhotosByCatName(name);
 	}
 
+	@Override
+    @Transactional
+	public void deletePhoto(Photo photo) {
+		photoDao.deletePhoto(photo);
+		
+	}
+
+	@Override
+    @Transactional
+	public Photo getPhotoById(Integer id) {
+		return photoDao.getPhotoById(id);
+	}
+
 //	@Override
 //	@Transactional
 //	public HashMap<Integer, Category> getCategoriesMap(Integer id) {
