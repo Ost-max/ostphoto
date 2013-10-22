@@ -1,11 +1,11 @@
 package com.ostphoto.app.admin.photo;
 
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 
 import javax.imageio.ImageIO;
 
@@ -15,7 +15,7 @@ public class PhotoUtils {
 	
 	enum PhotoSize {
 	      
-		  ORIGINAL,  M(160, 160), S(80, 80);
+		  ORIGINAL, LAST(200, 160), SLIDER(600, 360), S(120, 120);
 
 		  private int w;
 		  private int h;
@@ -47,27 +47,44 @@ public class PhotoUtils {
 		}
 	
 	public static BufferedImage getImage(File file, PhotoSize size) {
-		BufferedImage bsrc, bdest;
+		BufferedImage bsrc;
 		try {
-		     bsrc = ImageIO.read(file);
-			int  curW, curH, finalH,  finalW;
+		    bsrc = ImageIO.read(file);
+		    int type =  bsrc.getType() == 0? BufferedImage.TYPE_INT_ARGB : bsrc.getType();
+			int   finalH,  finalW;
+			double sF1, sF2, curW, curH;
 		    bsrc = ImageIO.read(file);
 		    curW = bsrc.getWidth();
 		    curH = bsrc.getHeight();		    
-			if(curW > curH) {
-				finalW = size.getW();
-				finalH = (int)(curH/(curW/finalW));
+		    sF1 = curW/size.getW();
+		    sF2 = curH/size.getH();
+			if(sF1 > sF2) {
+				finalH = (int) (curH/sF2);
+				finalW = (int) (curW/sF2);
 			} else {
-				finalH = size.getH();
-				finalW = (int)(curW/(curH/finalH));
-			} 	    
-			bdest = new BufferedImage(finalW, finalH, BufferedImage.TYPE_INT_RGB);
-			Graphics2D g = bdest.createGraphics();
-			AffineTransform at = AffineTransform.getScaleInstance( (double)finalW
-					/ bsrc.getWidth(), (double) finalH / bsrc.getHeight());
-			g.drawRenderedImage(bsrc, at);
-			// add the scaled image	            
-			return bdest;
+				finalH = (int) (curH/sF1);
+				finalW = (int) (curW/sF1);
+			}		    
+			BufferedImage resizedImage = new BufferedImage(finalW, finalH, type);
+			Graphics2D g = resizedImage.createGraphics();
+			g.drawImage(bsrc, 0, 0, finalW, finalH, null);
+			g.dispose();	
+			g.setComposite(AlphaComposite.Src);
+		 
+			g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+			RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			g.setRenderingHint(RenderingHints.KEY_RENDERING,
+			RenderingHints.VALUE_RENDER_QUALITY);
+			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+			RenderingHints.VALUE_ANTIALIAS_ON);
+		 
+//			bdest = new BufferedImage(finalW, finalH, BufferedImage.TYPE_INT_RGB);
+//			Graphics2D g = bdest.createGraphics();
+//			AffineTransform at = AffineTransform.getScaleInstance( (double)finalW
+//					/ bsrc.getWidth(), (double) finalH / bsrc.getHeight());
+//			g.drawRenderedImage(bsrc, at);
+//			// add the scaled image	            
+			return resizedImage;
 		} catch (Exception e) {
 			return null;
 		}

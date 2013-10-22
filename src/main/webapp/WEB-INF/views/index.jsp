@@ -15,10 +15,8 @@
     <title>Ostphoto</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
-    <link rel="stylesheet" href="../../resources/css/sitestyle.css">
-
-    <script src="../../resources/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sitestyle.css">
+    <script src="${pageContext.request.contextPath}/resources/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -42,6 +40,7 @@
     </div>
 </div>
 
+
 <div class="slideshow">
     <div class="slideshow-inner">
         <div id="gallery" class="content-container">
@@ -49,78 +48,28 @@
                 <div id="loading" class="loader"></div>
                 <div id="slideshow" class="slideshow-container"></div>
             </div>
-            <div id="caption" class="caption-container"></div>
         </div>
         <div id="thumbs" class="navigation">
             <ul class="thumbs">
-                <li><a class="thumb" name="leaf"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #0"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #0"/> </a>
-
-                    <div class="caption">
-                        <div class="image-title">Title #0</div>
-                        <div class="image-desc">Description</div>
-                    </div>
-                </li>
-                <li><a class="thumb" name="drop"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #1"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #1"/> </a>
-
-                    <div class="caption"> Any html can be placed here ...</div>
-                </li>
-                <li><a class="thumb" name="bigleaf"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #2"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #2"/> </a>
-
-                    <div class="caption">
-                        <div class="image-title">Title #2</div>
-                        <div class="image-desc">Description</div>
-                    </div>
-                </li>
-                <li><a class="thumb" name="lizard"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #3"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #3"/> </a>
-
-                    <div class="caption">
-                        <div class="image-title">Title #3</div>
-                        <div class="image-desc">Description</div>
-                    </div>
-                </li>
-                <li><a class="thumb"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #4"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #4"/> </a>
-
-                    <div class="caption">
-                        <div class="image-title">Title #4</div>
-                        <div class="image-desc">Description</div>
-                    </div>
-                </li>
-                <li><a class="thumb"
-                       href="http://news.zhengjian.org/sites/default/files/imagecache/Preview/story/image/20120216-10_13.jpg"
-                       title="Title #4"> <img
-                        src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                        alt="Title #4"/> </a>
-
-                    <div class="caption">
-                        <div class="image-title">Title #4</div>
-                        <div class="image-desc">Description</div>
-                    </div>
-                </li>
+                <c:forEach items="${photoList}" var="photo">      
+					<li>
+								<a class="thumb" name="leaf" title=""
+									href="${pageContext.request.contextPath}/admin/photo/slider/${photo.update}/${photo.fileName}">
+									<img 
+									src="${pageContext.request.contextPath}/admin/photo/s/${photo.update}/${photo.fileName}"
+									alt="Title #0" />
+									</a>
+						
+						<div class="caption">
+							<div class="image-title"></div>
+							<div class="image-desc"></div>
+						</div>
+					</li>
+			</c:forEach>
             </ul>
         </div>
     </div>
 </div>
-
 <div class="content-wrapper">
     <!-- TODO: fix buggy galleriffic CSS which declares plain .content styles  -->
     <div class="content-main">
@@ -176,34 +125,16 @@
     <div class="content-bottom">
         <h2>Last added photos</h2>
         <ul class="recent-photos">
+             <c:forEach items="${lastPhotos}" var="photo">    							
             <li>
-                <img class="recent-photos-image"
-                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                     width="200" height="160"/>
-                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
+                     <div class="recent-photos-image">
+						<img 
+							src="${pageContext.request.contextPath}/admin/photo/last/${photo.update}/${photo.fileName}"/>
+					</div>
+					<div class="recent-photos-caption"><a href="#">Wedding...</a></div>
                 <div class="recent-photos-date">September 17, 2013</div>
             </li>
-            <li>
-                <img class="recent-photos-image"
-                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                     width="200" height="160"/>
-                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
-                <div class="recent-photos-date">September 17, 2013</div>
-            </li>
-            <li>
-                <img class="recent-photos-image"
-                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                     width="200" height="160"/>
-                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
-                <div class="recent-photos-date">September 17, 2013</div>
-            </li>
-            <li>
-                <img class="recent-photos-image"
-                     src="http://cache2.allpostersimages.com/p/MED/67/6752/ROAZ100Z/posters/philippe-sainte-laudy-tender-nature.jpg"
-                     width="200" height="160"/>
-                <div class="recent-photos-caption">Wedding<a href="#">...</a></div>
-                <div class="recent-photos-date">September 17, 2013</div>
-            </li>
+            </c:forEach>
         </ul>
     </div>
 </div>
@@ -244,8 +175,8 @@
 
     galleryInit = function ($) {
         // We only want these styles applied when javascript is enabled
-        $('.slideshow .navigation').css({'width': '333px', 'float': 'right'});
-        $('.slideshow .content-container').css({'width': '480px', 'float': 'left'});
+//         $('.slideshow .navigation').css({'width': '333px', 'float': 'right'});
+//         $('.slideshow .content-container').css({'width': '480px', 'float': 'left'});
 
         // Initially set opacity on thumbs and add
         // additional styling for hover effect on thumbs

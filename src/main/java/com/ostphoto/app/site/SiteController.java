@@ -1,6 +1,9 @@
 package com.ostphoto.app.site;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.ostphoto.app.admin.photo.domains.Photo;
+import com.ostphoto.app.admin.photo.services.IPhotoService;
 
 /**
  * Handles requests for the application home page.
@@ -25,15 +31,22 @@ public class SiteController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(SiteController.class);
 	
+	@Autowired
+	private IPhotoService photoService;
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+		List<Photo> photos = photoService.getAllPhoto();
+        model.addAttribute("photoList",  photos);  	
+        if(photos.size() > 3) {        	
+            Collections.reverse(photos);
+            model.addAttribute("lastPhotos", photos.subList(0, 4) );  	
+        }
 
-		
 		return "index";
 	}
 	
@@ -41,8 +54,6 @@ public class SiteController {
 	@RequestMapping(value = "/booking", method = RequestMethod.GET)
 	public String booking(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-
 		
 		return "booking";
 	}

@@ -153,7 +153,7 @@ public class PhotoControler {
 			result =  IOUtils.toByteArray(new FileInputStream(photoFile));	
 		} else {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(PhotoUtils.getImage(photoFile, sizeType), "jpg", baos );
+			ImageIO.write(PhotoUtils.getImage(photoFile, sizeType), "png", baos );
 			baos.flush();
 			result =  baos.toByteArray();
 			baos.close();			
