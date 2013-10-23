@@ -15,7 +15,8 @@ public class PhotoUtils {
 	
 	enum PhotoSize {
 	      
-		  ORIGINAL,  M(160, 160), S(120, 120);
+
+		  ORIGINAL, LAST(200, 160), SLIDER(600, 360), S(120, 120);
 
 		  private int w;
 		  private int h;
@@ -49,20 +50,22 @@ public class PhotoUtils {
 	public static BufferedImage getImage(File file, PhotoSize size) {
 		BufferedImage bsrc;
 		try {
-		     bsrc = ImageIO.read(file);
-		     int type =  bsrc.getType() == 0? BufferedImage.TYPE_INT_ARGB : bsrc.getType();
-			int  curW, curH, finalH,  finalW;
+		    bsrc = ImageIO.read(file);
+		    int type =  bsrc.getType() == 0? BufferedImage.TYPE_INT_ARGB : bsrc.getType();
+			int   finalH,  finalW;
+			double sF1, sF2, curW, curH;
 		    bsrc = ImageIO.read(file);
 		    curW = bsrc.getWidth();
 		    curH = bsrc.getHeight();		    
-			if(curW > curH) {
-				finalH = size.getH();
-				finalW = (int)(curW/(curH/finalH));
+		    sF1 = curW/size.getW();
+		    sF2 = curH/size.getH();
+			if(sF1 > sF2) {
+				finalH = (int) (curH/sF2);
+				finalW = (int) (curW/sF2);
 			} else {
-				finalW = size.getW();
-				finalH = (int)(curH/(curW/finalW));		
-			} 	    
-			
+				finalH = (int) (curH/sF1);
+				finalW = (int) (curW/sF1);
+			}		    
 			BufferedImage resizedImage = new BufferedImage(finalW, finalH, type);
 			Graphics2D g = resizedImage.createGraphics();
 			g.drawImage(bsrc, 0, 0, finalW, finalH, null);

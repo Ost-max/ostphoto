@@ -14,7 +14,7 @@ a{
 	text-decoration: none;
 }
 a:focus, a:hover, a:active {
-	text-decoration: underline;
+	text-decoration: none;
 }
 p, li {
 	line-height: 1.8em;

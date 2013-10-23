@@ -228,21 +228,6 @@
 	<build>
 
 	<plugins>
-
-		<plugin>
-			<groupId>com.jelastic</groupId>
-			<artifactId>jelastic-maven-plugin</artifactId>
-			<version>1.7-SNAPSHOT</version>
-			<configuration>
-				<email>Ost-max@yandex.ru</email>
-				<password>sIWZR3yFJC</password>
-				<context>ROOT</context>
-				<environment>ostphoto</environment>
-				<comment>[insert comment if you need it]</comment>
-
-				<api_hoster>app.jelasticloud.com</api_hoster>
-			</configuration>
-		</plugin>
 		
 		<plugin>
 				<groupId>org.glassfish.maven.plugin</groupId>
