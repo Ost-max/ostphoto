@@ -8,7 +8,7 @@
 @import url(../../resources/css/jquery-ui-theme/jquery-ui.min.css);
 @import url(../../resources/css/jquery-ui-theme/jquery.ui.theme.css);
 @import url(../../resources/galleriffic/css/basic.css);
-@import url(../../resources/galleriffic/css/galleriffic-2.css);
+/* @import url(../../resources/galleriffic/css/galleriffic-2.css); */
 /* HTML5 Boilerplate imports */
 @import url(../../resources/css/normalize.min.css);
 @import url(../../resources/css/main.css);
@@ -108,19 +108,55 @@ p, pre, a {
 }
 
 .slideshow .slideshow-inner {
-    width: 838px;
-    position: relative;
+    width: 854px;
     background-color: #FFF;
     display: block;
-    height: 500px;
+    height: 360px;
     border: 1px solid #d9d4ce;
     margin: 0 auto;
+    padding: 10px;
 }
 
 .slideshow .content-container {
-    top: 0;
-    height: 100%;
+    float: left;
+    width: 600px !important;
+    height: 360px !important;
+    overflow: hidden;
+    border: 1px solid #d9d4ce;
 }
+
+
+.slideshow img {
+	    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+#thumbs {
+	    border: 1px solid #d9d4ce;
+	    width: 240px;
+	    float: left;
+	    display: table;
+	    margin-left: 10px;
+
+}
+#thumbs  ul {
+	    padding: 0px;
+	    margin: 0px;
+}
+
+
+#thumbs li {
+	    overflow: hidden;
+	    width: 120px !important;
+	    height: 120px;
+	    
+}
+
+
+
+
 
 /* SLIDESHOW END */
 

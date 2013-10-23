@@ -15,10 +15,8 @@
     <title>Ostphoto</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
-    <link rel="stylesheet" href="../../resources/css/sitestyle.css">
-
-    <script src="../../resources/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/sitestyle.css">
+    <script src="${pageContext.request.contextPath}/resources/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
