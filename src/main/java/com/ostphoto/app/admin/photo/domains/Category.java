@@ -17,6 +17,7 @@ import javax.persistence.Table;
 public class Category {
 
 	public static String ALL = "all";
+	public static String NONE = "none";
 	
 	@Id
     @Column(name = "ID")
@@ -26,7 +27,21 @@ public class Category {
     @Column(name = "name")
 	private String name;
     
+    @Column(name = "isslider",   columnDefinition="Boolean default false")
+	private Boolean isSlider;
     
+    
+  
+    
+	public Boolean getIsSlider() {
+		return isSlider;
+	}
+
+	public void setIsSlider(Boolean isSlider) {
+		this.isSlider = isSlider;
+	}
+
+
 	@ManyToMany(mappedBy="categories") 
     private Set<Photo> photos = new HashSet<>();
 

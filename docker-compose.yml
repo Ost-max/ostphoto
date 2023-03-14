@@ -1,0 +1,26 @@
+services:
+  app:
+    image: ost-photo
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: K8YG9rCp4r
+      MYSQL_DB: ostphoto
+    depends_on:
+      - mysql
+    ports:
+      - 80:8080
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 33060:33060
+    volumes:
+      - ost-photo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: K8YG9rCp4r
+      MYSQL_DATABASE: ostphoto
+
+volumes:
+  ost-photo-mysql-data:

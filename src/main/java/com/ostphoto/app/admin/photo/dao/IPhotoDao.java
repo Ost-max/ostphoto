@@ -18,9 +18,13 @@ public interface IPhotoDao {
 	
     public List<Photo> getPhotosByCatName(String name);
     
+    public Category getCategotyByName(String name);
+    
     public void deletePhoto(Photo photo);
     
     public Photo getPhotoById(Integer id);
+    
+    public List<Category> getCategoryByPhoto(Photo photo);
     
 //    public HashMap<Integer, Category> getCategoriesMap(Integer id);
 	

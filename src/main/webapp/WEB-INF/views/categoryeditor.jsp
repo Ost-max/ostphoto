@@ -10,6 +10,7 @@
         ${param.editOk}
        <br>
             <a href="${pageContext.request.contextPath}/admin/photo/all">all</a> &nbsp;  
+            <a href="${pageContext.request.contextPath}/admin/photo/none">none</a> &nbsp;  
        <c:forEach items="${categoryList}" var="category">                   
                   <a href="${pageContext.request.contextPath}/admin/photo/${category.name}">${category.name}</a> &nbsp; 
                 </c:forEach>
@@ -25,7 +26,8 @@
 
    
 <div id="photolist">
-	<h3>Photos:</h3>
+	<h3>${curCat.name} photos:</h3>
+	${curCat.isSlider}
 	          <c:forEach items="${photoList}" var="photo">                      
 	<div class="photocontainer">
 		<div class="photosetings">

@@ -65,6 +65,12 @@ public class PhotoService implements IPhotoService {
 		return photoDao.getPhotoById(id);
 	}
 
+	@Override
+	   @Transactional
+	public Category getCategotyByName(String name) {
+		return photoDao.getCategotyByName(name);
+	}
+
 //	@Override
 //	@Transactional
 //	public HashMap<Integer, Category> getCategoriesMap(Integer id) {

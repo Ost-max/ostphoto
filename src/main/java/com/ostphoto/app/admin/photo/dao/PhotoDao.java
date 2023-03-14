@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Where;
 import org.hibernate.classic.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -64,6 +65,16 @@ public class PhotoDao implements IPhotoDao {
                 + " where category.name = :catName ").setString("catName", catName);
 	   		return query.list();
 	}
+	
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Photo> getPhotosByCatName(String catName) {
+//		 Query query =  sessionFactory.getCurrentSession().createQuery(
+//	            " select p "
+//                + " from Photo p INNER JOIN p.categories category"
+//                + " where category.name = :catName ").setString("catName", catName);
+//	   		return query.list();
+//	}
 
 	@Override
 	public void deletePhoto(Photo photo) {
@@ -75,16 +86,22 @@ public class PhotoDao implements IPhotoDao {
 	public Photo getPhotoById(Integer id) {	   
 		return  (Photo) sessionFactory.getCurrentSession().get(Photo.class, id);
 	}
+
+	@Override
+	public Category getCategotyByName(String name) {
+		 return  (Category) sessionFactory.getCurrentSession().createQuery("from Category where name=:name")
+				 .setString("name", name).uniqueResult();  
+	}
+
+	@Override
+	public List<Category> getCategoryByPhoto(Photo photo) {
+//		(Category) sessionFactory.getCurrentSession().createQuery("from Category where name=:name")
+//		 .setString("name", name).uniqueResult();  
+		return null;
+	}
 	
 
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public HashMap<Integer, Category> getCategoriesMap(Integer id) {
-//		
-//			 Query query =  sessionFactory.getCurrentSession().createQuery(
-//		            " Select new map(category.id, category) from Category category");
-//		   		return (HashMap<Integer, Category>) query.uniqueResult();
-//	}
+
 
 
 }
